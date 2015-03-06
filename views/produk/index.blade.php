@@ -27,7 +27,11 @@
 
                 <section>
                     @foreach(getBanner(1) as $item)
-                        <div><a href="{{URL::to($item->url)}}"><img src="{{URL::to(getPrefixDomain().'/galeri/'.$item->gambar)}}" /></a></div>
+                        <div>
+                            <a href="{{URL::to($item->url)}}">
+                                <img src="{{URL::to(getPrefixDomain().'/galeri/'.$item->gambar)}}" />
+                            </a>
+                        </div>
                     @endforeach
                 </section>
             </div>
@@ -40,19 +44,19 @@
                 @endforeach
                 <div class="tab-content sideline">
                     @foreach($produk as $myproduk)
-                    <article style="height: 262px;position: relative;">
+                    <article style="height: 277px; position: relative;">
                         <span style="float: left; position: relative; top: 10px; left: 20px;" class="badge badge-inverse">{{jadiRupiah($myproduk->hargaJual)}}</span>
                         {{is_terlaris($myproduk)}}
                         {{is_produkbaru($myproduk)}}
                         {{is_outstok($myproduk)}}
                         <div class="view thumb-prod">
-                            {{HTML::image(getPrefixDomain().'/produk/'.$myproduk->gambar1, $myproduk->nama, array('class'=>'img1', 'style'=>'height: 180px;'))}}
+                            {{HTML::image(getPrefixDomain().'/produk/'.$myproduk->gambar1, $myproduk->nama, array('class'=>'img1'))}}
                             <div class="mask">
                                 <p>{{shortDescription($myproduk->deskripsi,100)}}</p>
                                 <a href="{{slugProduk($myproduk)}}" class="tbl-lihat">Lihat</a>
                             </div>
                         </div>
-                        <p><a class="navi-blog" href="{{slugProduk($myproduk)}}">{{ $myproduk->nama }}</a></p>
+                        <p><a class="navi-blog" href="{{slugProduk($myproduk)}}">{{ shortDescription($myproduk->nama,32) }}</a></p>
                     </article>
                     @endforeach
                 </div>

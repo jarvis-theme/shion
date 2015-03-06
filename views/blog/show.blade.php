@@ -37,7 +37,6 @@
             @endif
         </div>
         <hr />
-
     </div>
     <div class="span4 sidebar">
         <aside>
@@ -48,12 +47,9 @@
                 @endforeach
             </ul>
         </aside>
-
         <aside class="clearfix tags">
             <p class="title-sidebar"><i class="fa fa-tag"></i> <strong>Tags</strong></p>
-            
             {{ getTags('<span style="text-decoration: underline;"></span>',$tag)}}                      
         </aside>
     </div>
-
 </div>

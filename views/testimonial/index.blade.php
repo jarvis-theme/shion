@@ -39,6 +39,5 @@ Terjadi kesalahan dalam menyimpan data.<br>
             <input type="submit" style="float:right" class="cart-button" value="Kirim Testimonial">
             <br><br>
         </form>
-
     </aside>
 </div>

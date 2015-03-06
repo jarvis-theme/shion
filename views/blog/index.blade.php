@@ -13,11 +13,9 @@
         </article>
         @endforeach
         
-
         <div class="pagination pagination-centered">
-          {{$data->links()}}
+            {{$data->links()}}
         </div>
-
     </div>
 
     <div class="span4 sidebar">
@@ -25,7 +23,10 @@
             <p class="title-sidebar"><i class="fa fa-rss"></i> Artikel Baru</p>
             <ul>
                 @foreach(recentBlog() as $recent)
-                <li><a href="{{URL::to('blog/'.$recent->slug)}}">{{$recent->judul}}</a><br /><small>diposting tanggal {{waktuTgl($recent->updated_at)}}</small></li>
+                <li>
+                    <a href="{{URL::to('blog/'.$recent->slug)}}">{{$recent->judul}}</a><br />
+                    <i class="fa fa-calendar"></i>&nbsp;&nbsp;<small>{{waktuTgl($recent->updated_at)}}</small>
+                </li>
                 @endforeach
             </ul>
         </aside>

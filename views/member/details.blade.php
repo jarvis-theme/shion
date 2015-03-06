@@ -23,9 +23,11 @@
 <div class="row-fluid">
     <div class="span12">
         <ul class="nav nav-tabs" id="myTab">
-            <li class="active"><a href="#home">History Transaksi</a>
+            <li class="active">
+                <a href="#home">History Transaksi</a>
             </li>
-            <li><a href="#profile">Profile</a>
+            <li>
+                <a href="#profile">Profile</a>
             </li>
         </ul>
 
@@ -196,27 +198,30 @@
                         <br>
                         <textarea class="span10" name='alamat'>{{$user->alamat}}</textarea>
                         <br>
-                        <br>Negara
-
-                        <br>{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara , ($user ? $user->negara :(Input::old("negara")? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara'))}}
                         <br>
-                        <br>Provinsi
-
-                        <br>{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi , ($user ? $user->provinsi :(Input::old("provinsi")? Input::old("provinsi") :"")),array('required'=>'','id'=>'provinsi'))}}
+                        <label>Negara</label>
+                        <div>
+                            {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara , ($user ? $user->negara :(Input::old("negara")? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara'))}}
+                        </div>
                         <br>
-                        <br>Kota
-
-                        <br>{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota , ($user ? $user->kota :(Input::old("kota")? Input::old("kota") :"")),array('required'=>'','id'=>'kota'))}}
+                        <label>Provinsi</label>
+                        <div>
+                            {{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi , ($user ? $user->provinsi :(Input::old("provinsi")? Input::old("provinsi") :"")),array('required'=>'','id'=>'provinsi'))}}
+                        </div>
                         <br>
-                        <br>Kode Pos
+                        <label>Kota</label>
+                        <div>
+                            {{Form::select('kota',array('' => '-- Pilih Kota --') + $kota , ($user ? $user->kota :(Input::old("kota")? Input::old("kota") :"")),array('required'=>'','id'=>'kota'))}}
+                        </div>
                         <br>
+                        <label>Kode Pos</label>
                         <input class="span3" type="text" name='kodepos' value='{{$user->kodepos}}'>
-                        <br>
-                        <br>Telepon / HP
-                        <br>{{Form::input('text', 'telp', $user->telp, array('class'=>'span4'))}}
-                        <br>
-                        <br>
-
+                        <br><br>
+                        <label>Telepon / HP</label>
+                        <div>
+                            {{Form::input('text', 'telp', $user->telp, array('class'=>'span4'))}}
+                        </div>
+                        <br><br>
                     </div>
                     <div class="span5">
                         <h4>Ubah Password</h4>
@@ -241,12 +246,5 @@
                 </div>
             </div>
         </div>
-
-        <script>
-            $(function () {
-                $('#myTab a:first').tab('show');
-            })
-        </script>
-
     </div>
 </div>

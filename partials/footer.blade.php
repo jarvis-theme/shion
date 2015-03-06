@@ -12,9 +12,15 @@
                 <div class="footer-menu">
                     <h2 class="title">FOLLOW US</h2>
                     <ul>
-                        <li class="sosmed"><a href="{{ URL::to($kontak->fb) }}" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-                        <li class="sosmed"><a href="{{ URL::to($kontak->tw) }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                        <li class="sosmed"><a href="{{ URL::to($kontak->gp) }}" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="sosmed">
+                            <a href="{{ URL::to($kontak->fb) }}" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                        </li>
+                        <li class="sosmed">
+                            <a href="{{ URL::to($kontak->tw) }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li class="sosmed">
+                            <a href="{{ URL::to($kontak->gp) }}" target="_blank"><i class="fa fa-google-plus"></i></a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -43,7 +49,7 @@
                         </ul>                    
                     </div>
                 </div>
-                @elseif($key!=2)
+                @elseif($key!=0)
                 <div class="span3" style="min-height: 25%;">
                     <div class="footer-menu">                    
                         <h2 class="title">{{ strtoupper($group->nama) }}</h2>                        
