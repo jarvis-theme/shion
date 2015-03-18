@@ -4,7 +4,7 @@
         @foreach ($slideshow as $val)
             <li>
                 <img alt="{{ $val->text }}" src="{{URL::to(getPrefixDomain().'/galeri/'.$val->gambar)}}" />
-                <p class="flex-caption">{{ $val->text }}</p>
+                <!-- <p class="flex-caption">{{-- $val->text --}}</p> -->
             </li>
         @endforeach
     </ul>
