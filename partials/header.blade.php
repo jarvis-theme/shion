@@ -2,12 +2,12 @@
 	<section class="data-content">
 		<div class="row">
 			<div class="info">
-				@if ( ! Sentry::check())
+				@if ( ! is_login() )
 					<span>Selamat berbelanja</span><span class="divide"></span>
 					<span>{{ HTML::link('member', 'Login') }}</span><span class="divide"></span>
 					<span>{{ HTML::link('member/create', 'Register') }}</span>
 				@else
-					<span>Hai, {{ HTML::link('member', Sentry::getUser()->nama) }}<span class="divide"></span><span>{{HTML::link('logout', 'Logout')}}</span>
+					<span>Hai, {{ HTML::link('member', user()->nama) }}<span class="divide"></span><span>{{HTML::link('logout', 'Logout')}}</span>
 				@endif
 			</div>
 			<div class="search-column">
@@ -20,7 +20,7 @@
 				<h1 class="brand-title">
 					@if(@getimagesize(URL::to(getPrefixDomain().'/galeri/'.$toko->logo)))
 					<a href="{{ URL::to('home') }}">
-						<img src="{{ URL::to(getPrefixDomain().'/galeri/'.$toko->logo) }}" class="logo">
+						<img src="{{@URL::to(getPrefixDomain().'/galeri/'.$toko->logo) }}" class="logo">
 					</a>
 					@else
 					<a href="{{URL::to('home')}}">{{ shortText(Theme::place('title'),26) }}</a>
