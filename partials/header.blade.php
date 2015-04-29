@@ -18,7 +18,13 @@
 			</div>
 			<div class="span5">
 				<h1 class="brand-title">
-					
+					@if(@getimagesize(url(logo_image_url())))
+					<a href="{{ URL::to('home') }}">
+						<img src="{{ url(logo_image_url()) }}" class="logo">
+					</a>
+					@else
+					<a href="{{URL::to('home')}}">{{ shortText(Theme::place('title'),26) }}</a>
+					@endif
 				</h1>
 			</div>
 			<div class="span3 offset2 tools">
