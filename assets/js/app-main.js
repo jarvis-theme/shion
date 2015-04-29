@@ -31,6 +31,9 @@ require.config({
 
 		// ROUTE
 		router          : 'js/router',
+		jq_ui			: 'js/jquery-ui',
+		noty			: 'js/jquery.noty',
+		cart          	: 'js/shop_cart',
 
 		// CONTROLLER
 		blog            : dirTema+'assets/js/pages/blog',
@@ -44,7 +47,8 @@ require([
 	'router',
 	'bootstrap',
 	'main',
-], function(router,b,main){
+	'cart'
+], function(router,b,main,cart){
 	// BLOG
 	router.define('blog/*', 'blog@run');
 	
@@ -60,4 +64,5 @@ require([
 	
 	router.run();
 	main.run();
+	cart.run();
 });

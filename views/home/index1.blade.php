@@ -3,10 +3,10 @@
         <div class="sidebar">
             {{pluginSidePowerup()}}
             <section>
-                @foreach(getBanner(1) as $item)
+                @foreach(vertical_banner() as $item)
                 <div>
                     <a href="{{URL::to($item->url)}}">
-                        <img src="{{URL::to(getPrefixDomain().'/galeri/'.$item->gambar)}}" />
+                        <img src="{{ url(banner_image_url($item->gambar)) }}" />
                     </a>
                 </div>
                 @endforeach
@@ -14,7 +14,7 @@
             <section>
                 <h5>Hubungi Kami</h5>
                 @if($shop->ym)
-                {{ymyahoo($shop->ym)}}
+                    {{ymyahoo($shop->ym)}}
                 <br><br>
                 @endif
                 @if($shop->telepon)
@@ -51,7 +51,7 @@
                 <h5>Testimonial</h5>
                 <span>
                     <ul>
-                        @foreach ($testimo as $items)
+                        @foreach (list_testimonial() as $items)
                             <li>
                                 <a href="#">{{$items->isi}}</a><br />
                                 <small>oleh <strong>{{$items->nama}}</strong></small>
@@ -69,21 +69,21 @@
         <div class="row-fluid">
 
             <div class="tab-content sideline">
-                @foreach($produk as $key=>$myproduk)
+                @foreach(list_product() as $key=>$myproduk)
                 <article style="height: 277px; position:relative;">
-                    <span style="float: left; position: relative; top: 10px; left: 20px;" class="badge badge-inverse">{{jadiRupiah($myproduk->hargaJual)}}</span>    
+                    <span style="float: left; position: relative; top: 10px; left: 20px;" class="badge badge-inverse">{{price($myproduk->hargaJual)}}</span>    
                     {{is_terlaris($myproduk)}}
                     {{is_produkbaru($myproduk)}}
                     {{is_outstok($myproduk)}}
                     <div class="view thumb-prod">
-                        <img src="{{URL::to(getPrefixDomain().'/produk/'.$myproduk->gambar1)}}" alt="" class="img1" />
+                        <img src="{{ url(product_image_url($myproduk->gambar1,'medium')) }}" alt="" class="img1" />
                         <div class="mask">
-                            <p>{{shortDescription($myproduk->deskripsi,100)}}</p>
-                            <a href="{{slugProduk($myproduk)}}" class="buy">Beli</a>
+                            <p>{{short_description($myproduk->deskripsi,100)}}</p>
+                            <a href="{{product_url($myproduk)}}" class="buy">Beli</a>
 
                         </div>
                     </div>
-                    <p><a href="{{slugProduk($myproduk)}}">{{shortDescription($myproduk->nama,32)}}</a></p>
+                    <p><a href="{{product_url($myproduk)}}">{{short_description($myproduk->nama,32)}}</a></p>
                 </article>
                 @endforeach
             </div>

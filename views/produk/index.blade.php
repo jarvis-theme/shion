@@ -19,17 +19,17 @@
                 <section>
                     <ul class="category collection">
                         <h5>Koleksi</h5>
-                        @foreach($koleksi as $mykoleksi)
+                        @foreach(list_koleksi() as $mykoleksi)
                             <li><a href={{ URL::to('koleksi/'.$mykoleksi->slug) }}>{{$mykoleksi->nama}}</a></li>
                         @endforeach
                     </ul>                    
                 </section>
 
                 <section>
-                    @foreach(getBanner(1) as $item)
+                    @foreach(vertical_banner() as $item)
                         <div>
                             <a href="{{URL::to($item->url)}}">
-                                <img src="{{URL::to(getPrefixDomain().'/galeri/'.$item->gambar)}}" />
+                                <img src="{{ url(banner_image_url($item->gambar)) }}" />
                             </a>
                         </div>
                     @endforeach
@@ -39,28 +39,30 @@
 
         <div class="span9">
             <div class="row-fluid">                
-                @foreach(getBanner(2) as $item)
-                <div class="hidden-phone" style="width: 100%;margin: 0 auto;margin-bottom: 15px;"><a href="{{URL::to($item->url)}}"><img src="{{URL::to(getPrefixDomain().'/galeri/'.$item->gambar)}}" /></a></div>
+                
+                @foreach(horizontal_banner() as $item)
+                <div class="hidden-phone" style="width: 100%;margin: 0 auto;margin-bottom: 15px;"><a href="{{URL::to($item->url)}}"><img src="{{ url(banner_image_url($item->gambar)) }}" /></a></div>
                 @endforeach
+
                 <div class="tab-content sideline">
-                    @foreach($produk as $myproduk)
+                    @foreach(list_product(12,@$category,@$collection) as $myproduk)
                     <article style="height: 277px; position: relative;">
-                        <span style="float: left; position: relative; top: 10px; left: 20px;" class="badge badge-inverse">{{jadiRupiah($myproduk->hargaJual)}}</span>
+                        <span style="float: left; position: relative; top: 10px; left: 20px;" class="badge badge-inverse">{{price($myproduk->hargaJual)}}</span>
                         {{is_terlaris($myproduk)}}
                         {{is_produkbaru($myproduk)}}
                         {{is_outstok($myproduk)}}
                         <div class="view thumb-prod">
-                            {{HTML::image(getPrefixDomain().'/produk/'.$myproduk->gambar1, $myproduk->nama, array('class'=>'img1'))}}
+                            {{HTML::image( product_image_url($myproduk->gambar1,'medium'), $myproduk->nama, array('class'=>'img1'))}}
                             <div class="mask">
-                                <p>{{shortDescription($myproduk->deskripsi,100)}}</p>
-                                <a href="{{slugProduk($myproduk)}}" class="tbl-lihat">Lihat</a>
+                                <p>{{short_description($myproduk->deskripsi,100)}}</p>
+                                <a href="{{product_url($myproduk)}}" class="tbl-lihat">Lihat</a>
                             </div>
                         </div>
-                        <p><a class="navi-blog" href="{{slugProduk($myproduk)}}">{{ shortDescription($myproduk->nama,32) }}</a></p>
+                        <p><a class="navi-blog" href="{{product_url($myproduk)}}">{{ short_description($myproduk->nama,32) }}</a></p>
                     </article>
                     @endforeach
                 </div>
-                {{$produk->links()}}
+                {{list_product(12,@$category,@$collection)->links()}}
             </div>
         </div>
     </div>

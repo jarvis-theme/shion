@@ -4,12 +4,12 @@
 
 <section class="blog row-fluid">
     <div class="span8 list">
-        @foreach($data as $key=>$value)
+        @foreach(list_blog(6,@$blog_category) as $key=>$value)
         <article>
-            <a href={{"'".URL::to("blog/".$value->slug)."'"}} class="navi-blog"><h4>{{$value->judul}}</h4></a>
+            <a href="{{ url(blog_url($value)) }}" class="navi-blog"><h4>{{$value->judul}}</h4></a>
             <p><small class="date"><i class="fa fa-calendar"></i> {{waktuTgl($value->updated_at)}}</small> </p>
-            {{shortDescription($value->isi,300)}}
-            <p><a href={{"'".URL::to("blog/".$value->slug)."'"}} class="theme">Baca Selengkapnya →</a></p>
+            {{short_description($value->isi,300)}}
+            <p><a href=" {{ url(blog_url($value)) }} " class="theme">Baca Selengkapnya →</a></p>
         </article>
         @endforeach
         
@@ -24,7 +24,7 @@
             <ul>
                 @foreach(recentBlog() as $recent)
                 <li>
-                    <a href="{{URL::to('blog/'.$recent->slug)}}">{{$recent->judul}}</a><br />
+                    <a href="{{ url(blog_url($recent)) }}">{{$recent->judul}}</a><br />
                     <i class="fa fa-calendar"></i>&nbsp;&nbsp;<small>{{waktuTgl($recent->updated_at)}}</small>
                 </li>
                 @endforeach
@@ -33,8 +33,8 @@
 
         <aside class="clearfix tags">
             <p class="title-sidebar"><i class="fa fa-tag"></i> Kategori</p>
-            @foreach($categoryList as $key=>$value)
-                <span style="text-decoration: underline;"><a href="{{URL::to('blog/category/'.generateSlug($value))}}">{{$value->nama}}</a></span>
+            @foreach(list_blog_category() as $key=>$value)
+                <span style="text-decoration: underline;"><a href="{{ url(blog_category_url($value))}}">{{$value->nama}}</a></span>
             @endforeach
         </aside>
     </div>

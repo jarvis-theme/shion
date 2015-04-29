@@ -43,7 +43,7 @@
             <p class="title-sidebar"><i class="fa fa-rss"></i> <strong>Artikel Terbaru</strong></p>
             <ul>
                 @foreach(recentBlog($detailblog) as $recent)
-                <li><a href="{{URL::to('blog/'.$recent->slug)}}">{{$recent->judul}}</a><br /><small>diposting tanggal {{waktu($recent->updated_at)}}</small></li>
+                <li><a href="{{ url(blog_url($recent)) }}">{{$recent->judul}}</a><br /><small>diposting tanggal {{waktu($recent->updated_at)}}</small></li>
                 @endforeach
             </ul>
         </aside>

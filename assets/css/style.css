@@ -91,7 +91,7 @@ nav a:hover { text-decoration: none; color: #555; }
 .tools { float: right; margin-top: 50px; text-align: right; }
 .breadcrumb { background-color: transparent; padding: 45px 90px 5px 0px; font-size: 12px; }
 .breadcrumb .active { color: #666; }
-.content { padding-bottom: 80px; }
+.content { padding-bottom: 20px; }
 .page-title { font-size: 35px; padding: 16px 0px 35px; font-weight: 700; border-bottom: 1px solid #ddd; color: #222; }
 .article { padding-top: 40px; }
 .article-title { font-weight: bold; padding-bottom: 15px ; }

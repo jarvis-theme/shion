@@ -18,20 +18,14 @@
 			</div>
 			<div class="span5">
 				<h1 class="brand-title">
-					@if(@getimagesize(URL::to(getPrefixDomain().'/galeri/'.$toko->logo)))
-					<a href="{{ URL::to('home') }}">
-						<img src="{{@URL::to(getPrefixDomain().'/galeri/'.$toko->logo) }}" class="logo">
-					</a>
-					@else
-					<a href="{{URL::to('home')}}">{{ shortText(Theme::place('title'),26) }}</a>
-					@endif
+					
 				</h1>
 			</div>
 			<div class="span3 offset2 tools">
 				<a href="#" class="search"><i class="fa fa-search"></i> Search</a>
 				<a href="{{ URL::to('checkout') }}" class="cart" id="shoppingcartplace">
 					<i class="fa fa-shopping-cart"></i> {{ $items = Shpcart::cart()->total_items() }} Items
-					<p style="margin-top: 15px; color: #666;">Total: {{ jadiRupiah(Shpcart::cart()->total() )}}</p>
+					<p style="margin-top: 15px; color: #666;">Total: {{ price(Shpcart::cart()->total() )}}</p>
 				</a>
 			</div>
 		</div>

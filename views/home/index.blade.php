@@ -2,14 +2,14 @@
     <div class="row-fluid">
 
         <div class="span12">
-            <h3>BARANG POPULER</h3>
-            <div class="tab-content">
-                @foreach($produk as $key=>$myproduk)
+            <h3>BARANG KAMI</h3>
+            <div>
+                @foreach(list_product() as $key=>$myproduk)
 
                 <div class="tab-pane active" id="feat">
 
                 <article class="span4 article-img">
-                    <span style="float: left; position: relative; top: 10px; left: 20px;" class="badge badge-inverse">{{jadiRupiah($myproduk->hargaJual)}}</span>
+                    <span style="float: left; position: relative; top: 10px; left: 20px;" class="badge badge-inverse">{{price($myproduk->hargaJual)}}</span>
 
                     {{is_terlaris($myproduk)}}
 
@@ -19,18 +19,18 @@
 
                     <div class="view view-thumb">
 
-                        <img style="margin:auto;heigth:300px" src="{{URL::to(getPrefixDomain().'/produk/'.$myproduk->gambar1)}}" alt="" />
+                        <img style="margin:auto;heigth:300px" src="{{ url(product_image_url($myproduk->gambar1,'medium')) }}" alt="" />
 
                         <div class="mask">
-                            <p>{{shortDescription($myproduk->deskripsi,100)}}</p>
+                            <p>{{short_description($myproduk->deskripsi,100)}}</p>
 
-                            <a href="{{slugProduk($myproduk)}}" class="buy">Beli</a>
+                            <a href="{{product_url($myproduk)}}" class="buy">Beli</a>
 
                         </div>
 
                     </div>
 
-                    <p><a class="navi-blog" href="{{slugProduk($myproduk)}}">{{$myproduk->nama}}</a></p>
+                    <p><a class="navi-blog" href="{{product_url($myproduk)}}">{{$myproduk->nama}}</a></p>
 
                 </article>
                 </div>
