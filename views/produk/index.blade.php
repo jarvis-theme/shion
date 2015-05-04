@@ -20,7 +20,7 @@
                     <ul class="category collection">
                         <h5>Koleksi</h5>
                         @foreach(list_koleksi() as $mykoleksi)
-                            <li><a href={{ URL::to('koleksi/'.$mykoleksi->slug) }}>{{$mykoleksi->nama}}</a></li>
+                            <li><a href="{{ koleksi_url($mykoleksi) }}">{{$mykoleksi->nama}}</a></li>
                         @endforeach
                     </ul>                    
                 </section>
@@ -28,7 +28,7 @@
                 <section>
                     @foreach(vertical_banner() as $item)
                         <div>
-                            <a href="{{URL::to($item->url)}}">
+                            <a href="{{url($item->url)}}">
                                 <img src="{{ url(banner_image_url($item->gambar)) }}" />
                             </a>
                         </div>
@@ -41,10 +41,12 @@
             <div class="row-fluid">                
                 
                 @foreach(horizontal_banner() as $item)
-                <div class="hidden-phone" style="width: 100%;margin: 0 auto;margin-bottom: 15px;"><a href="{{URL::to($item->url)}}"><img src="{{ url(banner_image_url($item->gambar)) }}" /></a></div>
+                <div class="hidden-phone" style="width: 100%;margin: 0 auto;margin-bottom: 15px;"><a href="{{url($item->url)}}"><img src="{{ url(banner_image_url($item->gambar)) }}" /></a></div>
                 @endforeach
 
                 <div class="tab-content sideline">
+                @if(count(list_product(12,@$category,@$collection)) > 0)
+                
                     @foreach(list_product(12,@$category,@$collection) as $myproduk)
                     <article style="height: 277px; position: relative;">
                         <span style="float: left; position: relative; top: 10px; left: 20px;" class="badge badge-inverse">{{price($myproduk->hargaJual)}}</span>
@@ -63,6 +65,12 @@
                     @endforeach
                 </div>
                 {{list_product(12,@$category,@$collection)->links()}}
+            @else
+                <p style="font-style:italic; text-align:center;">
+                    Produk tidak ditemukan.
+                </p>
+                </div>
+            @endif
             </div>
         </div>
     </div>

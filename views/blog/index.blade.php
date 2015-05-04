@@ -4,6 +4,7 @@
 
 <section class="blog row-fluid">
     <div class="span8 list">
+    @if(count(list_blog(6,@$blog_category)) > 0)
         @foreach(list_blog(6,@$blog_category) as $key=>$value)
         <article>
             <a href="{{ url(blog_url($value)) }}" class="navi-blog"><h4>{{$value->judul}}</h4></a>
@@ -14,8 +15,13 @@
         @endforeach
         
         <div class="pagination pagination-centered">
-            {{$data->links()}}
+            {{list_blog(6,@$blog_category)->links()}}
         </div>
+    @else
+        <article style="font-style:italic; text-align:center;">
+            Blog tidak ditemukan.
+        </article>
+    @endif
     </div>
 
     <div class="span4 sidebar">

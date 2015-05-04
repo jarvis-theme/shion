@@ -5,7 +5,7 @@
             <section>
                 @foreach(vertical_banner() as $item)
                 <div>
-                    <a href="{{URL::to($item->url)}}">
+                    <a href="{{url($item->url)}}">
                         <img src="{{ url(banner_image_url($item->gambar)) }}" />
                     </a>
                 </div>
@@ -40,7 +40,7 @@
                 @if($shop->bb)
                 <address class="row-fluid">
                     <div class="pull-left clabel" style="padding-right: 5px; border-right: 1px dotted rgb(221, 221, 221);">
-                        <img src="{{URL::to('img/bbm.png')}}" style="width: 20px;">
+                        <img src="{{url('img/bbm.png')}}" style="width: 20px;">
                     </div>
                     <div class="pull-left cdata" style="padding-left: 5px;">{{$shop->bb}}</div>
                 </address>
@@ -58,7 +58,7 @@
                             </li>
                         @endforeach
                     </ul>
-                    <strong style="float:right"><a href="{{URL::to('testimoni')}}">More..</a></strong>
+                    <strong style="float:right"><a href="{{url('testimoni')}}">More..</a></strong>
                 </span>
             </section>                            
 
@@ -76,7 +76,7 @@
                     {{is_produkbaru($myproduk)}}
                     {{is_outstok($myproduk)}}
                     <div class="view thumb-prod">
-                        <img src="{{ url(product_image_url($myproduk->gambar1,'medium')) }}" alt="" class="img1" />
+                        <img src="{{ url(product_image_url($myproduk->gambar1,'medium')) }}" alt="" class="img1" style="height:250px;width:auto;" />
                         <div class="mask">
                             <p>{{short_description($myproduk->deskripsi,100)}}</p>
                             <a href="{{product_url($myproduk)}}" class="buy">Beli</a>

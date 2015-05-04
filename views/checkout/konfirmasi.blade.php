@@ -5,7 +5,7 @@
         <ol id="checkoutSteps">
             <li>
                 <div class="step-title"> <span class="number">1</span>
-                    <h2><a href="{{URL::to('checkout')}}" style="text-decoration:none;">Metode Checkout</a></h2>
+                    <h2><a href="{{url('checkout')}}" style="text-decoration:none;">Metode Checkout</a></h2>
                 </div>
             </li>
             <li>

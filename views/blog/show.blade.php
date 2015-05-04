@@ -1,6 +1,6 @@
 <div class="prime" style="padding: 10px 0px; text-align: center; margin-bottom: 30px; border-bottom: 1px dotted #bbb;">
     <h3>{{$detailblog->judul}}</h3>
-    <p><span class="date"><i class="fa fa-calendar"></i> {{date("d M Y", strtotime($detailblog->updated_at))}} <i class="fa fa-tag"></i> <a href="{{URL::to('blog/category/'.$detailblog->kategori->nama)}}" class="navi-blog">{{$detailblog->kategori->nama}}</a></span></p>
+    <p><span class="date"><i class="fa fa-calendar"></i> {{date("d M Y", strtotime($detailblog->updated_at))}} <i class="fa fa-tag"></i> <a href="{{url('blog/category/'.$detailblog->kategori->nama)}}" class="navi-blog">{{$detailblog->kategori->nama}}</a></span></p>
 </div>
 
 <div class="row-fluid post">
@@ -20,7 +20,7 @@
         <hr>
         <div>
             {{$fbscript}}
-            {{fbcommentbox(URL::to("blog/".$detailblog->slug), '100%', '5', 'light')}}
+            {{fbcommentbox(url("blog/".$detailblog->slug), '100%', '5', 'light')}}
         </div>
 
         <div class="navigate comments clearfix">

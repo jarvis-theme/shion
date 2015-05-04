@@ -72,7 +72,7 @@
                                             @endforeach
                                         </ul>
                                     </td>
-                                    <td>{{ jadiRupiah($item->total) }}</td>
+                                    <td>{{ price($item->total) }}</td>
                                     <td>{{ $item->noResi }}</td>
                                     <td>
                                         @if($pengaturan->checkoutType==1)
@@ -110,12 +110,12 @@
                                     <td>
                                         @if ($pengaturan->checkoutType==3) 
                                             @if($item->status<4)
-                                                <a href="{{URL::to('konfirmasipreorder/'.$item->id)}}" class="btn btn-success">Konfirmasi Pembayaran</a>
+                                                <a href="{{url('konfirmasipreorder/'.$item->id)}}" class="btn btn-success">Konfirmasi Pembayaran</a>
                                             @endif 
                                         @endif
                                         @if($pengaturan->checkoutType==1) 
                                              @if($item->status<=1)
-                                                <a href="{{URL::to('konfirmasiorder/'.$item->id)}}" class="btn btn-success">Konfirmasi Pembayaran</a>
+                                                <a href="{{url('konfirmasiorder/'.$item->id)}}" class="btn btn-success">Konfirmasi Pembayaran</a>
                                             @endif 
                                         @endif
                                     </td>

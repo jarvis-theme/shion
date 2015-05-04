@@ -70,7 +70,7 @@
 
                               <div class="tab-pane active" id="login">
 
-                                <form class="form-horizontal" action="{{URL::to('member/login')}}" method="post">
+                                <form class="form-horizontal" action="{{url('member/login')}}" method="post">
 
                                     <div class="control-group">
 
@@ -116,7 +116,7 @@
 
                               <div class="tab-pane" id="forgot">
 
-                                <form class="form-horizontal" action="{{URL::to('member/forgetpassword')}}" method="post">
+                                <form class="form-horizontal" action="{{url('member/forgetpassword')}}" method="post">
 
                                     <div class="control-group">
 
@@ -172,7 +172,7 @@
 
                                 </ul>
 
-                            <a href="{{URL::to('member/create')}}" class="theme">Create an Account →</a></p>
+                            <a href="{{url('member/create')}}" class="theme">Create an Account →</a></p>
 
                         </div>
 

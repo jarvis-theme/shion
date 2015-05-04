@@ -10,7 +10,7 @@
                 @foreach (Shpcart::wishlist()->contents() as $key => $cart)
                     <tr>
                         <td class="cart-product-info">
-                            <a href=""><img src="{{URL::to(getPrefixDomain().'/produk/'.$cart['image'])}}" alt="product image"></a>
+                            <a href=""><img src="{{url(getPrefixDomain().'/produk/'.$cart['image'])}}" alt="product image"></a>
                             <div class="cart-product-desc">
                                 <p><a class="invarseColor" href="#">{{$cart['name']}}</a></p>
                             </div>
@@ -24,7 +24,7 @@
         <tfoot>
             <tr>
                 <td class="cart-product-info">
-                    <a href="{{URL::to('checkout')}}" class="btn btn-small btn-primary">Checkout</a>
+                    <a href="{{url('checkout')}}" class="btn btn-small btn-primary">Checkout</a>
                 </td>
                 <td>
                     <h3>{{ Shpcart::wishlist()->total_items()}}</h3>

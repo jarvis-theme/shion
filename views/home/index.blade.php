@@ -19,7 +19,7 @@
 
                     <div class="view view-thumb">
 
-                        <img style="margin:auto;heigth:300px" src="{{ url(product_image_url($myproduk->gambar1,'medium')) }}" alt="" />
+                        <img style="margin:auto;height:250px" src="{{ url(product_image_url($myproduk->gambar1,'medium')) }}" alt="" />
 
                         <div class="mask">
                             <p>{{short_description($myproduk->deskripsi,100)}}</p>
@@ -30,7 +30,7 @@
 
                     </div>
 
-                    <p><a class="navi-blog" href="{{product_url($myproduk)}}">{{$myproduk->nama}}</a></p>
+                    <p><a class="navi-blog" href="{{product_url($myproduk)}}">{{short_description($myproduk->nama,77)}}</a></p>
 
                 </article>
                 </div>

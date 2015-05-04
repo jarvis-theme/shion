@@ -213,7 +213,7 @@
 	            	@elseif($order->jenisPembayaran==4)	
 		            	@if(($checkouttype==1 && $order->status < 2) || ($checkouttype==3 && ($order->status!=6)))		
 		            		<p>Jika anda belum melakukan pembayaran via iPaymu, klik tombol bayar dibawah ini</p><br/>										  
-		            		<a class="cart-button" href="{{URL::to('ipaymu/'.$order->id)}}" target="_blank">Bayar dengan iPaymu</a>
+		            		<a class="cart-button" href="{{url('ipaymu/'.$order->id)}}" target="_blank">Bayar dengan iPaymu</a>
 		            	@endif									
 	            	@endif	
             </div>

@@ -31,7 +31,7 @@ Terjadi kesalahan dalam menyimpan data.<br>
     </div>
     <aside class="span4" style="padding-top: 10px;">
         <p style="font-size: 16px; margin-bottom: 20px;"><strong>Kirim Testimonial</strong></p>
-        <form action="{{URL::to('testimoni')}}" method="post">
+        <form action="{{url('testimoni')}}" method="post">
             <label>Nama</label>
             <input type="text" name="nama" class="input-text" required style="height: 30px; width: 100%;"><br><br>
             <label>Testimonial</label>
