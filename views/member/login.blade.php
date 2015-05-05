@@ -124,7 +124,7 @@
 
                                     <div class="controls">
 
-                                      <input type="email" id="inputEmail" placeholder="Email" name='recoveryEmail' style="height: 30px;">
+                                      <input type="email" id="inputEmail" placeholder="Email" name='recoveryEmail' style="height: 30px;" required>
 
                                     </div>
 

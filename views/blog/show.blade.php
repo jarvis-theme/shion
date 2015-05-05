@@ -20,7 +20,7 @@
         <hr>
         <div>
             {{$fbscript}}
-            {{fbcommentbox(url("blog/".$detailblog->slug), '100%', '5', 'light')}}
+            {{fbcommentbox(url(blog_url($detailblog)), '100%', '5', 'light')}}
         </div>
 
         <div class="navigate comments clearfix">
