@@ -10,4 +10,4 @@
 {{generate_theme_css('shion/assets/css/flexslider.css')}}
 {{generate_theme_css('shion/assets/css/sharrre.css')}}
 
-<link rel="shortcut icon" href="{{ favicon() }}">
+{{ favicon() }}
