@@ -1,38 +1,36 @@
 <section class="feat" style="margin-top: 20px;">
     <div class="row-fluid">
-
         <div class="span12">
             <h3>BARANG KAMI</h3>
             <div>
                 @foreach(list_product() as $key=>$myproduk)
-
                 <div class="tab-pane active" id="feat">
+                    <article class="span4 article-img">
+                        <span id="harga" class="badge badge-inverse">{{price($myproduk->hargaJual)}}</span>
 
-                <article class="span4 article-img">
-                    <span style="float: left; position: relative; top: 10px; left: 20px;" class="badge badge-inverse">{{price($myproduk->hargaJual)}}</span>
+                        @if(is_outstok($myproduk))    
+                            {{is_outstok($myproduk)}}
+                        @else
+                            @if(is_produkbaru($myproduk))
+                                {{is_produkbaru($myproduk)}}
+                            @elseif(is_terlaris($myproduk))
+                                {{is_terlaris($myproduk)}}
+                            @endif
+                        @endif
 
-                    {{is_terlaris($myproduk)}}
-
-                    {{is_produkbaru($myproduk)}}
-
-                    {{is_outstok($myproduk)}}
-
-                    <div class="view view-thumb">
-
-                        <img style="margin:auto;height:250px" src="{{ url(product_image_url($myproduk->gambar1,'medium')) }}" alt="" />
-
-                        <div class="mask">
-                            <p>{{short_description($myproduk->deskripsi,100)}}</p>
-
-                            <a href="{{product_url($myproduk)}}" class="buy">Beli</a>
-
+                        <div class="view view-thumb">
+                            <img style="margin:auto;height:250px" src="{{ url(product_image_url($myproduk->gambar1,'medium')) }}" alt="{{shortName($myproduk->nama,25)}}" />
+                            <div class="mask">
+                                <p>{{short_description($myproduk->deskripsi,100)}}</p>
+                                <a href="{{product_url($myproduk)}}" class="buy">Beli</a>
+                            </div>
                         </div>
-
-                    </div>
-
-                    <p><a class="navi-blog" href="{{product_url($myproduk)}}">{{short_description($myproduk->nama,77)}}</a></p>
-
-                </article>
+                        <p>
+                            <a class="navi-blog" href="{{product_url($myproduk)}}">
+                                {{short_description($myproduk->nama,77)}}
+                            </a>
+                        </p>
+                    </article>
                 </div>
                 @endforeach
             </div>

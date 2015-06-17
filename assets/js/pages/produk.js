@@ -1,4 +1,4 @@
-define(['jquery','jq_ui','bootstrap','fancybox','flexslider','sharrre','noty',], function($)
+define(['jquery','jq_ui','fancybox','flexslider','sharrre'], function($)
 {
 	return new function()
 	{
@@ -9,19 +9,19 @@ define(['jquery','jq_ui','bootstrap','fancybox','flexslider','sharrre','noty',],
 			slider();
 			sharrreButtons();
 			plugin_trustklik();
-
-			//tampilkan error noty
-			var msg = $('#message');
-			if(msg.length){
-				type = $(msg).attr('class');        
-				text = $(msg).html();
-				noty({"text":text,"layout":"top","type":type});    
-			}
 			
 			// Fancybox function
-			$('#flexslider-product .slides a').fancybox();
+			// $('#flexslider-product .slides a').fancybox();
 
-			$(".collapse").collapse();          
+			// $(".collapse").collapse();
+
+			$('.fancybox').fancybox({
+				padding: 10,
+				openEffect : 'elastic',
+				openSpeed  : 150,
+				closeEffect : 'elastic',
+				closeSpeed  : 150
+			});
 		};
 
 		var sharrreButtons = function(){
@@ -163,7 +163,7 @@ define(['jquery','jq_ui','bootstrap','fancybox','flexslider','sharrre','noty',],
 
 		var slider = function(){
 			$('.flexslider-produk').flexslider({
-				animation: "slide",
+				animation: "pause",
 				// itemWidth: 420,
 				// itemMargin: 16,
 				controlNav: "thumbnails",

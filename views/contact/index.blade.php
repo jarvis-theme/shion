@@ -20,7 +20,7 @@
 @endif
  
 <div class="row-fluid">
-    <div class="span12" style="padding: 10px 0px; text-align: center; border-bottom: 1px dotted; margin-bottom: 30px;">
+    <div class="span12 pages">
         <h3>Kontak Kami</h3>
     </div>
     <div class="row-fluid">
@@ -36,20 +36,17 @@
         @endif
 
             <div class="block">
-                <?php if(isset($emailSent) && $emailSent == true) { ?>
-                <p class="info">Your email was sent. Huzzah!</p>
-                <?php } else { ?>
-                <form id="contact-us" action="{{URL::to('kontak')}}" method="post">
+                <form id="contact-us" action="{{url('kontak')}}" method="post">
                     <p style="font-size: 16px;"><strong>Leave a message</strong></p>
                     <ul id="contact_form">
                         <li>
-                            <input style="height: 30px; width: 100%;" type="text" name="namaKontak" id="contactName" value="" class="txt requiredField" placeholder="Name" />
+                            <input type="text" name="namaKontak" id="contactName" value="" class="txt requiredField" placeholder="Name" required />
                         </li>
                         <li>
-                            <input style="height: 30px; width: 100%;" type="text" name="emailKontak" id="email" value="" class="txt requiredField email" placeholder="Email" />
+                            <input type="text" name="emailKontak" id="email" value="" class="txt requiredField email" placeholder="Email" required />
                         </li>
                         <li>
-                            <textarea style="width: 100%;" name="messageKontak" id="commentsText" class="txtarea requiredField" placeholder="Message"></textarea>
+                            <textarea style="width: 100%;" name="messageKontak" id="commentsText" class="txtarea requiredField" placeholder="Message" required></textarea>
                         </li>
                         <li>
                             <button name="submit" type="submit" class="cart-button">Send us Mail!</button>
@@ -58,10 +55,9 @@
                     </ul>
                 </form>
             </div>
-            <?php } ?>
         </div>
         <div class="span6">
-            @if($kontak->lat=='0' || $kontak->lat=='0')
+            @if($kontak->lat=='0' || $kontak->lng=='0')
                 <iframe style="float:right" width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
             @else
                 <iframe style="float:right" width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->alamat }}&amp;aq=0&amp;oq=gegerkalong+hil&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;hq=&amp;hnear={{ $kontak->alamat }}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />

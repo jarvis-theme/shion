@@ -1,6 +1,3 @@
-<div  style="padding: 10px 0px; text-align: center; margin-bottom: 30px; border-bottom: 1px dotted #BBB;">
-    <h3 style="text-align: center;">Member Area</h3>
-</div>
 @if($errors->all())
 <div class="alert alert-error">
     Kami menemukan error berikut:
@@ -20,6 +17,10 @@
     <p>Informasi anda berhasil di update.</p>
 </div>
 @endif
+
+<div class="pages">
+    <h3 style="text-align: center;">Member Area</h3>
+</div>
 <div class="row-fluid">
     <div class="span12">
         <ul class="nav nav-tabs" id="myTab">
@@ -132,7 +133,7 @@
                     @endif 
                 @else 
                     @if($inquiry->count()!=0)
-                        <table class="table table-bordered">
+                    <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <td width="15%">ID Order</td>
@@ -174,7 +175,7 @@
                             </td>
                         </tr>
                     @endif
-                        </table>
+                    </table>
                 @endif
             </div>
             <div class="tab-pane" id="profile">

@@ -1,6 +1,10 @@
-<div class="prime" style="padding: 10px 0px; text-align: center; margin-bottom: 30px; border-bottom: 1px dotted #bbb;">
+<div class="prime pages">
     <h3>{{$detailblog->judul}}</h3>
-    <p><span class="date"><i class="fa fa-calendar"></i> {{date("d M Y", strtotime($detailblog->updated_at))}} <i class="fa fa-tag"></i> <a href="{{url('blog/category/'.$detailblog->kategori->nama)}}" class="navi-blog">{{$detailblog->kategori->nama}}</a></span></p>
+    @if(count($detailblog->kategori) > 0)
+    <p><span class="date"><i class="fa fa-calendar"></i> {{date("d M Y", strtotime($detailblog->updated_at))}} <i class="fa fa-tag"></i> <a href="{{blog_category_url(@$detailblog->kategori)}}" class="navi-blog">{{@$detailblog->kategori->nama}}</a></span></p>
+    @else
+    <p><span class="date"><i class="fa fa-calendar"></i> {{date("d M Y", strtotime($detailblog->updated_at))}}</span></p>
+    @endif
 </div>
 
 <div class="row-fluid post">
@@ -8,6 +12,19 @@
         <article style="padding-bottom: 30px;">
             <p>{{$detailblog->isi}}</p>
         </article>
+        <div class="navigate comments clearfix">
+            @if(isset($prev))
+                <div class="pull-left"><a href="{{$prev->slug}}" class="navi-blog">&larr; Sebelumnya</a></div>
+            @else
+                <div class="pull-right"></div>
+            @endif
+
+            @if(isset($next))
+                <div class="pull-right"><a href="{{$next->slug}}" class="navi-blog">Selanjutnya &rarr;</a></div>
+            @else
+                <div class="pull-right"></div>
+            @endif
+        </div>
         <hr>
         <div class="share" style="margin-bottom: 65px;">
             <div id="twitter" data-url="{{Request::url();}}" data-text="{{$detailblog->slug}} | " data-title="Tweet"></div>
@@ -22,28 +39,13 @@
             {{$fbscript}}
             {{fbcommentbox(url(blog_url($detailblog)), '100%', '5', 'light')}}
         </div>
-
-        <div class="navigate comments clearfix">
-            @if(isset($prev))
-                <div class="pull-left"><a href="{{$prev->slug}}" class="navi-blog">&larr; Sebelumnya</a></div>
-            @else
-                <div class="pull-right"></div>
-            @endif
-
-            @if(isset($next))
-                <div class="pull-right"><a href="{{$next->slug}}" class="navi-blog">Selanjutnya &rarr;</a></div>
-            @else
-                <div class="pull-right"></div>
-            @endif
-        </div>
-        <hr />
     </div>
     <div class="span4 sidebar">
         <aside>
             <p class="title-sidebar"><i class="fa fa-rss"></i> <strong>Artikel Terbaru</strong></p>
             <ul>
                 @foreach(recentBlog($detailblog) as $recent)
-                <li><a href="{{ url(blog_url($recent)) }}">{{$recent->judul}}</a><br /><small>diposting tanggal {{waktu($recent->updated_at)}}</small></li>
+                <li><a href="{{ blog_url($recent) }}">{{$recent->judul}}</a><br/><small>diposting tanggal {{waktu($recent->updated_at)}}</small></li>
                 @endforeach
             </ul>
         </aside>

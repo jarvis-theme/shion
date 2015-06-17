@@ -1,4 +1,4 @@
-<div style="padding: 10px 0px; text-align: center; border-bottom: 1px dotted; margin-bottom: 30px;">
+<div class="pages">
     <h3>{{$data->judul}}</h3>
 </div>
 <div class="page_sidebar">

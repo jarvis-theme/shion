@@ -1,9 +1,9 @@
 @if(Session::has('success'))
 <div class="success" id='message' style='display:none'>
-	<p>Terima kasih, konfirmasi anda sudah terkirim.</p>					
+	<p>Terima kasih, konfirmasi anda sudah terkirim.</p>
 </div>		
 @endif
-<div class="row standard">										
+<div class="row standard">
 	<header class="span12 prime">
 		<h3>Konfirmasi Order</h3>
 	</header>
@@ -14,13 +14,13 @@
 		<div class=" form-horizontal" >
 			<table class="table table-bordered" >
                 <tr>
-                    <th align="center"  >Kode Order</th>
-                    <th align="center" >Tanggal Order</th>
-                    <th  align="center" class="hidden-phone" >Order</th>
-                    <th  align="center" class="hidden-phone">Jumlah</th>
-                    <th  align="center" >Jumlah yg belum di bayar</th>
-                    <th  align="center" >No Resi</th>
-                    <th  align="center" >Status</th>
+                    <th align="center">Kode Order</th>
+                    <th align="center">Tanggal Order</th>
+                    <th align="center" class="hidden-phone">Order</th>
+                    <th align="center" class="hidden-phone">Jumlah</th>
+                    <th align="center">Jumlah yg belum di bayar</th>
+                    <th align="center">No Resi</th>
+                    <th align="center">Status</th>
                 </tr>
                 <tr>
                     <td>@if($checkouttype==1)
@@ -85,9 +85,9 @@
 					@elseif($order->status==2)
 					<span class="label label-info">Pembayaran diterima</span>
 					@elseif($order->status==3)
-					<span class="label label-info">Terkirim</span>
+					<span class="label label-success">Terkirim</span>
 					@elseif($order->status==4)
-					<span class="label label-info">Batal</span>
+					<span class="label label-default">Batal</span>
 					@endif
 				
 				@else 
@@ -103,9 +103,9 @@
 					@elseif($order->status==4)
 					<span class="label label-info">Pembayaran lunas</span>
 					@elseif($order->status==5)
-					<span class="label label-info">Terkirim</span>
+					<span class="label label-success">Terkirim</span>
 					@elseif($order->status==6)
-					<span class="label label-info">Batal</span>
+					<span class="label label-default">Batal</span>
 					@elseif($order->status==7)
 					<span class="label label-info">Konfirmasi Pelunasan diterima</span>
 					@endif
@@ -154,55 +154,47 @@
 						{{Form::open(array('url'=> 'konfirmasipreorder/'.$order->id, 'method'=>'put', 'class'=> 'form-horizontal'))}}							            	
 					@endif
 						<div class="control-group">
-						<label class="control-label" for="inputEmail" > Nama Pengirim</label>
-						<div class="controls">
-						  	<input class="span6" type="text" name='nama' value='{{Input::old("nama")}}' required>
-						</div>
-						</div>
-						<div class="control-group">
-						<label class="control-label" for="inputEmail"> No Rekening</label>
-						<div class="controls">
-						  	<input type="text" class="span6" name='noRekPengirim' value='{{Input::old("noRekPengirim")}}' required>
-						</div>
+							<label class="control-label" for="inputEmail" > Nama Pengirim</label>
+							<div class="controls">
+							  	<input class="span6" type="text" name='nama' value='{{Input::old("nama")}}' required>
+							</div>
 						</div>
 						<div class="control-group">
-						<label class="control-label" for="inputEmail"> Rekening Tujuan</label>
-						<div class="controls">
-							<select name='bank'>
-								<option value=''>-- Pilih Bank Tujuan --</option>
-								@foreach ($banktrans as $bank)
-									<option value="{{$bank->id}}">{{$bank->bankdefault->nama}} - {{$bank->noRekening}} - A/n {{$bank->atasNama}}</option>
-								@endforeach
-							</select>
-						</div>
+							<label class="control-label" for="inputEmail"> No Rekening</label>
+							<div class="controls">
+							  	<input type="text" class="span6" name='noRekPengirim' value='{{Input::old("noRekPengirim")}}' required>
+							</div>
 						</div>
 						<div class="control-group">
-						<label class="control-label" for="inputEmail"> Jumlah</label>
-						<div class="controls">
-						@if($checkouttype==1)
-		            		
-							<input class="span6" type="text" name='jumlah' value='{{$order->total}}' required style="height:30px;" readonly="">
-
-				            	@else
-				            		@if($order->status < 2)
-
+							<label class="control-label" for="inputEmail"> Rekening Tujuan</label>
+							<div class="controls">
+								<select name='bank'>
+									<option value=''>-- Pilih Bank Tujuan --</option>
+									@foreach ($banktrans as $bank)
+										<option value="{{$bank->id}}">{{$bank->bankdefault->nama}} - {{$bank->noRekening}} - A/n {{$bank->atasNama}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="inputEmail"> Jumlah</label>
+							<div class="controls">
+							@if($checkouttype==1)
+								<input class="span6" type="text" name='jumlah' value='{{$order->total}}' required style="height:30px;" readonly="">
+			            	@else
+			            		@if($order->status < 2)
 								<input class="span6" type="text" name='jumlah' value='{{$order->dp}} style="height:30px;' required readonly="">
-							
-							@elseif(($order->status > 1 && $order->status < 4) || $order->status==7)
-
+								@elseif(($order->status > 1 && $order->status < 4) || $order->status==7)
 								<input class="span6" type="text" name='jumlah' value='{{$order->total - $order->dp}}' required style="height:30px;" readonly="">
-
-							@endif
-
-		            	@endif
-
-						</div>
+								@endif
+			            	@endif
+							</div>
 						</div>
 						
 						<div class="control-group">
-						<div class="controls">
-						  <button type="submit" class="cart-button"><i class="fa fa-check"></i> Konfirmasi Order</button>
-						</div>
+							<div class="controls">
+							  <button type="submit" class="cart-button"><i class="fa fa-check"></i> Konfirmasi Order</button>
+							</div>
 						</div>
 						{{Form::close()}}
 					@endif
@@ -217,7 +209,6 @@
 		            	@endif									
 	            	@endif	
             </div>
-           
 		</div>
 	</div>					
 </div>

@@ -3,9 +3,9 @@
             <div class="span3" style="height: auto;">
                 <div class="footer-menu">
                     <h2 class="title">GET IN TOUCH</h2>
-                    <p style="text-align: left; color: #bbb;"><i class="fa fa-map-marker" style="width: 15px; text-align: center;"></i><span class="divide"></span>{{ $kontak->alamat }}</p>
-                    <p style="text-align: left; color: #bbb;"><i class="fa fa-phone-square" style="width: 15px; text-align: center;"></i><span class="divide"></span>{{ $kontak->telepon }}</p>
-                    <p class="email" style="text-align: left; color: #bbb;"><i class="fa fa-envelope" style="width: 15px; text-align: center;"></i><span class="divide"></span><a href="mailto:{{$kontak->email}}">{{$kontak->email}}</a></p>
+                    <p class="item-kontak"><i class="fa fa-map-marker icon-kontak"></i><span class="divide"></span>{{ $kontak->alamat }}</p>
+                    <p class="item-kontak"><i class="fa fa-phone-square icon-kontak"></i><span class="divide"></span>{{ $kontak->telepon }}</p>
+                    <p class="email item-kontak"><i class="fa fa-envelope icon-kontak"></i><span class="divide"></span><a href="mailto:{{$kontak->email}}">{{$kontak->email}}</a></p>
                 </div>
             </div>
             <div class="span3" style="height: auto;">
@@ -13,40 +13,45 @@
                     <h2 class="title">FOLLOW US</h2>
                     <ul>
                         <li class="sosmed">
-                            <a href="{{ URL::to($kontak->fb) }}" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                            <a href="{{ url($kontak->fb) }}" target="_blank" title="Facebook"><i class="fa fa-facebook-square"></i></a>
                         </li>
                         <li class="sosmed">
-                            <a href="{{ URL::to($kontak->tw) }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="{{ url($kontak->tw) }}" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
                         </li>
+                        @if(!empty($kontak->gp))
                         <li class="sosmed">
-                            <a href="{{ URL::to($kontak->gp) }}" target="_blank"><i class="fa fa-google-plus"></i></a>
+                            <a href="{{ url($kontak->gp) }}" target="_blank" title="Google Plus"><i class="fa fa-google-plus"></i></a>
                         </li>
+                        @endif
+                        @if(!empty($kontak->pt))
+                        <li class="sosmed">
+                            <a href="{{ url($kontak->pt) }}" target="_blank" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                        </li>
+                        @endif
+                        @if(!empty($kontak->ig))
+                        <li class="sosmed">
+                            <a href="{{ url($kontak->ig) }}" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        @endif
+                        @if(!empty($kontak->tl))
+                        <li class="sosmed">
+                            <a href="{{ url($kontak->tl) }}" target="_blank" title="Tumblr"><i class="fa fa-tumblr"></i></a>
+                        </li>
+                        @endif
                     </ul>
                 </div>
             </div>
 
             @foreach($tautan as $key=>$group)
-                @if($key=='3' || $key=='7')
+                @if($key == '3' || $key == '7')
                 <div class="span3" style="min-height: 25%; margin-left: 0px;">
                     <div class="footer-menu">
                         <h2 class="title">{{ strtoupper($group->nama) }}</h2>                    
                         <ul>
-                        @foreach($quickLink as $key=>$link)                        
-                            @if($group->id==$link->tautanId)
+                        @foreach($quickLink as $link)
+                            @if($group->id == $link->tautanId)
                             <li>
-                            @if($link->halaman=='1')
-                                @if($link->linkTo == 'halaman/about-us')
-                                <a href='{{url(strtolower($link->linkTo))}}'>{{$link->nama}}</a>
-                                @else
-                                <a href='{{url("halaman/".strtolower($link->linkTo))}}'>{{$link->nama}}</a>
-                                @endif
-                            @elseif($link->halaman=='2')
-                                <a href='{{url("blog/".strtolower($link->linkTo))}}'>{{$link->nama}}</a>
-                            @elseif($link->url=='1')
-                                <a href="http://{{strtolower($link->linkTo)}}">{{$link->nama}}</a>
-                            @else
-                                <a href='{{url(strtolower($link->linkTo))}}'>{{$link->nama}}</a>
-                            @endif
+                                <a href='{{menu_url($link)}}'>{{$link->nama}}</a>
                             </li>
                             @endif
                         @endforeach
@@ -58,22 +63,10 @@
                     <div class="footer-menu">                    
                         <h2 class="title">{{ strtoupper($group->nama) }}</h2>                        
                         <ul>
-                        @foreach($quickLink as $key=>$link) 
-                            @if($group->id==$link->tautanId)
+                        @foreach($quickLink as $link)
+                            @if($group->id == $link->tautanId)
                             <li>
-                                @if($link->halaman=='1')
-                                    @if($link->linkTo == 'halaman/about-us')
-                                    <a href='{{url(strtolower($link->linkTo))}}'>{{$link->nama}}</a>
-                                    @else
-                                    <a href='{{url("halaman/".strtolower($link->linkTo))}}'>{{$link->nama}}</a>
-                                    @endif
-                                @elseif($link->halaman=='2')
-                                    <a href='{{url("blog/".strtolower($link->linkTo))}}'>{{$link->nama}}</a>
-                                @elseif($link->url=='1')
-                                    <a href='{{url(strtolower($link->linkTo))}}'>{{$link->nama}}</a>
-                                @else
-                                    <a href='{{url(strtolower($link->linkTo))}}'>{{$link->nama}}</a>
-                                @endif
+                                <a href='{{menu_url($link)}}'>{{$link->nama}}</a>
                             </li>
                             @endif
                         @endforeach
@@ -90,15 +83,15 @@
             <div class="span6">
                 <p class="bank">
                 @foreach(list_banks() as $value)  
-                    <img src="{{bank_logo($value)}}" alt="{{$value->name}}" />
+                    <img src="{{bank_logo($value)}}" alt="{{$value->name}}" title="{{$value->name}}" />
                 @endforeach  
                 @foreach(list_payments() as $pay)
                     @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                    <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" />
+                    <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Ipaymu" />
                     @endif
                 @endforeach
                 @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-                    <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" />
+                    <img src="{{url('img/bank/doku.jpg')}}" alt="doku" title="Doku Myshortcart" />
                 @endif
                 </p>
             </div>

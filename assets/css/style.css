@@ -146,7 +146,7 @@ nav a:hover { text-decoration: none; color: #555; }
 .email a { color: #bbb; font-size: 14px; }
 .email a:hover { color: #777; }
 .copyright { font-size: 11px; padding: 25px 0px 0px 0px; }
-.bank { float: right; padding: 20px 0 0 30px; white-space:nowrap; }
+.bank { float: right; padding: 20px 0 0 30px; }
 .footer-info { margin-left: 0px; }
 .navbar .nav > li > a:hover { border-radius: 0px; }
 .navbar .navbar-inner .nav > li { cursor: pointer; }
@@ -335,7 +335,7 @@ textarea:focus{
 	.grs-right { border-right: none; }
 	.social { padding: 25px 0px 45px; }
 	.main-footer > li { width: 100%; height: auto; border-left: medium none; padding: 0px 0px 45px; }
-	.bank { display: none; }
+	.bank { /*display: none;*/ padding: 10px 0 0; border-top: 1px #ddd solid; }
 	.navbar-inner > .container a { margin-left: 20px; margin-right: 20px; }
 	.btn-cart, .btn-search { display: inline-block; }
 	.nav-collapse .nav { margin-left: -15px; margin-right: -15px; }
@@ -355,6 +355,7 @@ textarea:focus{
 	section.content .tab-content .view { margin: 30px 20px 10px; }
 	#feat { margin-left: auto; margin-right: auto; width: 70%; }
 	.article-img { width: 100% !important; }
+	.product-title { line-height: 35px; }
 }
 
 @media (max-width: 320px) {
@@ -379,3 +380,18 @@ textarea:focus{
 }
 
 .flex-viewport { max-height: 2000px; transition: all 1s ease 0s; }
+#harga { float: left; position: relative; top: 10px; left: 20px; }
+.sep-home1 { border-right: 1px dotted #ddd; }
+.notfound { font-style:italic; text-align:center; }
+div.sidebar > aside { padding-top: 10px; }
+aside.tags > span { text-decoration: underline; }
+div.clabel > i.fa-mobile { font-size: 1.5em; }
+div.sideline > article { height: 277px; position:relative; }
+.icon-kontak { width: 15px; text-align: center; }
+.item-kontak { text-align: left; color: #bbb; }
+#search-icon { position: absolute; top: -10px; right: 10%; color: #DDD; font-size: 1.5em; }
+.pages { padding: 10px 0px; text-align: center; margin-bottom: 30px; border-bottom: 1px dotted #bbb; }
+.txt { height: 30px !important; width: 100%; }
+#horizontal-banner { width: 100%;margin: 0 auto;margin-bottom: 15px; }
+.badge { float: left; position: relative; top: 10px; left: 20px; z-index: 999; }
+#img-responsive { display: block; max-width: 100%; height: auto; }

@@ -15,28 +15,36 @@
 	<div class="row-fluid">
 		<div class="span6">
 			<div id="slider" class="flexslider-produk">
-				<ul class="slides">
+				<ul class="slides" style="z-index: 0;">
 					@if($produk->gambar1!='')   
 					<li data-thumb="{{url(product_image_url($produk->gambar1,'medium'))}}">
+						<a class="fancybox" href="{{product_image_url($produk->gambar1, 'large')}}" title="{{$produk->nama}}">
 						{{HTML::image( url(product_image_url($produk->gambar1)))}}
+						</a>
 					</li>
 					@endif  
 
 					@if($produk->gambar2!='')   
 					<li data-thumb="{{ url(product_image_url($produk->gambar2,'medium')) }}">
+						<a class="fancybox" href="{{product_image_url($produk->gambar2, 'large')}}" title="{{$produk->nama}}">
 						{{HTML::image( url(product_image_url($produk->gambar2)))}}
+						</a>
 					</li>
 					@endif  
 
 					@if($produk->gambar3!='')   
 					<li data-thumb="{{ url(product_image_url($produk->gambar3,'medium')) }}">
+						<a class="fancybox" href="{{product_image_url($produk->gambar3, 'large')}}" title="{{$produk->nama}}">
 						{{HTML::image( url(product_image_url($produk->gambar3)))}}
+						</a>
 					</li>
 					@endif  
 
 					@if($produk->gambar4!='')   
 					<li data-thumb="{{url(product_image_url($produk->gambar4,'medium'))}}">
+						<a class="fancybox" href="{{product_image_url($produk->gambar4, 'large')}}" title="{{$produk->nama}}">
 						{{HTML::image( url(product_image_url($produk->gambar4)))}}
+						</a>
 					</li>
 					@endif  
 				</ul>
@@ -107,10 +115,16 @@
 			<section class="row-fluid cross-product">
 				@foreach(other_product($produk) as $myproduk)
 				<article class="span3" style="height: 277px; position: relative;">
-					<span style="float: left; position: relative; top: 10px; left: 20px;" class="badge badge-inverse">{{price($myproduk->hargaJual)}}</span>
-					{{is_terlaris($myproduk)}}
-					{{is_produkbaru($myproduk)}}
-					{{is_outstok($myproduk)}}
+					<span class="badge badge-inverse">{{price($myproduk->hargaJual)}}</span>
+					@if(is_outstok($myproduk))    
+                        {{is_outstok($myproduk)}}
+                    @else
+                        @if(is_produkbaru($myproduk))
+                            {{is_produkbaru($myproduk)}}
+                        @elseif(is_terlaris($myproduk))
+                            {{is_terlaris($myproduk)}}
+                        @endif
+                    @endif
 					<div class="view thumb-prod">
 						{{HTML::image(product_image_url($myproduk->gambar1), $myproduk->nama, array('class'=>'img1'))}}
 						<div class="mask">

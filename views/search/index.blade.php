@@ -1,4 +1,4 @@
-<div class="prime" style="padding: 10px 0px; text-align: center; margin-bottom: 30px; border-bottom: 1px dotted #bbb;">
+<div class="prime pages">
 	<h3>Hasil Pencarian</h3>
 </div>
 <div class="row-fluid search-result">
@@ -34,7 +34,7 @@
 		@endforeach
 	@else
 		<article style="text-align: center; border: 0;">
-			<i>Hasil tidak ditemukan</i>
+			<i>Hasil pencarian tidak ditemukan</i>
 		</article>
 	@endif
 </div>

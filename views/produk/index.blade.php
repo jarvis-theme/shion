@@ -1,12 +1,12 @@
 <section class="product">
-
-    <div style="padding: 10px 0px; text-align: center; margin-bottom: 30px; border-bottom: 1px dotted #bbb;">
+    <div class="pages">
         <h3>{{$name}}</h3>
     </div>
 
     <div class="row-fluid">
         <div class="span3 hidden-phone">
             <div class="sidebar">
+                @if(count(list_category()) > 0)
                 <section>
                     <h5>Kategori</h5>
                     <nav>
@@ -15,6 +15,7 @@
                         </ul>
                     </nav>
                 </section>
+                @endif
 
                 <section>
                     <ul class="category collection">
@@ -41,18 +42,29 @@
             <div class="row-fluid">                
                 
                 @foreach(horizontal_banner() as $item)
-                <div class="hidden-phone" style="width: 100%;margin: 0 auto;margin-bottom: 15px;"><a href="{{url($item->url)}}"><img src="{{ url(banner_image_url($item->gambar)) }}" /></a></div>
+                <div class="hidden-phone" id="horizontal-banner">
+                    <a href="{{url($item->url)}}">
+                        <img src="{{ url(banner_image_url($item->gambar)) }}" />
+                    </a>
+                </div>
                 @endforeach
 
                 <div class="tab-content sideline">
-                @if(count(list_product(12,@$category,@$collection)) > 0)
+                @if(count(list_product(null,@$category,@$collection)) > 0)
                 
-                    @foreach(list_product(12,@$category,@$collection) as $myproduk)
+                    @foreach(list_product(null,@$category,@$collection) as $myproduk)
                     <article style="height: 277px; position: relative;">
-                        <span style="float: left; position: relative; top: 10px; left: 20px;" class="badge badge-inverse">{{price($myproduk->hargaJual)}}</span>
-                        {{is_terlaris($myproduk)}}
-                        {{is_produkbaru($myproduk)}}
-                        {{is_outstok($myproduk)}}
+                        <span class="badge badge-inverse">{{price($myproduk->hargaJual)}}</span>
+                        @if(is_outstok($myproduk))    
+                            {{is_outstok($myproduk)}}
+                        @else
+                            @if(is_produkbaru($myproduk))
+                                {{is_produkbaru($myproduk)}}
+                            @elseif(is_terlaris($myproduk))
+                                {{is_terlaris($myproduk)}}
+                            @endif
+                        @endif
+
                         <div class="view thumb-prod">
                             {{HTML::image( product_image_url($myproduk->gambar1,'medium'), $myproduk->nama, array('class'=>'img1'))}}
                             <div class="mask">
@@ -64,7 +76,7 @@
                     </article>
                     @endforeach
                 </div>
-                {{list_product(12,@$category,@$collection)->links()}}
+                {{list_product(null,@$category,@$collection)->links()}}
             @else
                 <p style="font-style:italic; text-align:center;">
                     Produk tidak ditemukan.

@@ -1,5 +1,5 @@
-<div style="padding: 10px 0px; border-bottom: 1px dotted; margin-bottom: 30px;">
-    <h3 style="text-align:center;">Layanan Pelanggan</h3>
+<div class="pages">
+    <h3>Layanan Pelanggan</h3>
 </div>
 <div class="page_sidebar">
     <section id="main_content">

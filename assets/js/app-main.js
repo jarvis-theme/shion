@@ -17,15 +17,16 @@ require.config({
 		},
 	},
 
+	"waitSeconds" : 20,
+    urlArgs: "v=002",
+
 	paths: {
 		// LIBRARY
 		bootstrap 		: ['//maxcdn.bootstrapcdn.com/bootstrap/2.2.1/js/bootstrap.min','js/bootstrap.min'],
-		cart			: 'js/cart',
+		// cart			: 'js/cart',
 		flexslider		: dirTema+'assets/js/lib/jquery.flexslider',
 		fancybox		: dirTema+'assets/js/lib/jquery.fancybox',
-		jq_ui			: 'js/jquery-ui',
-		jquery 			: ['//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min',dirTema+'assets/js/lib/jquery1.7.2.min'],
-		noty			: 'js/jquery.noty',
+		jquery 			: ['//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min',dirTema+'assets/js/lib/jquery-1.7.2.min'],
 		respond			: dirTema+'assets/js/lib/respond',
 		sharrre			: dirTema+'assets/js/lib/jquery.sharrre',
 

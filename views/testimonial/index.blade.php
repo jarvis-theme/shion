@@ -5,29 +5,28 @@
 @endif
 @if($errors->all())
 <div class="error" id='message' style='display:none'>
-Terjadi kesalahan dalam menyimpan data.<br>
-<ul>
-    @foreach($errors->all() as $message)
-    <li>{{ $message }}</li>
-    @endforeach
-</ul>
+    Terjadi kesalahan dalam menyimpan data.<br>
+    <ul>
+        @foreach($errors->all() as $message)
+        <li>{{ $message }}</li>
+        @endforeach
+    </ul>
 </div>
 @endif
 
-
-<div  style="padding: 10px 0px; text-align: center; margin-bottom: 30px; border-bottom: 1px dotted #BBB;">
-    <h3 style="text-align: center;">{{$nama}}</h3>
+<div class="pages">
+    <h3>{{$nama}}</h3>
 </div>
 <div class="row-fluid">
     <div class="span8 list">
-        @foreach($testimonial as $key=>$value)
+        @foreach(list_testimonial() as $key=>$value)
         <article class="testimonial">
             <a href="#" class="navi-blog"><h4>{{$value->nama}}</h4></a>
             <p><small class="date"><i class="fa fa-calendar"></i> {{waktuTgl($value->created_at)}}</small></p>
             <p>{{substr($value->isi,0,250)}}</p>
         </article>
         @endforeach
-        {{$testimonial->links()}}
+        {{list_testimonial()->links()}}
     </div>
     <aside class="span4" style="padding-top: 10px;">
         <p style="font-size: 16px; margin-bottom: 20px;"><strong>Kirim Testimonial</strong></p>
