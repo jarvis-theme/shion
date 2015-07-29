@@ -13,3 +13,11 @@
 	<meta name="DC.Description" content="{{$description}}">
 	<link rel="canonical" href="{{URL::full()}}">
 	<link rel="shion-theme" href="{{dirTemaToko()}}shion/">
+
+	<!-- Facebook Metadata /-->
+	<meta property="og:description" content="{{$description}}"/>
+	<meta property="og:title" content="{{$title}}"/>
+
+	<!-- Google+ Metadata /-->
+	<meta itemprop="name" content="">
+	<meta itemprop="description" content="{{$description}}">

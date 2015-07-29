@@ -97,3 +97,4 @@
             </div>
         </div>
     </footer>
+    {{pluginPowerup()}}

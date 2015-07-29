@@ -8,7 +8,6 @@ define(['jquery','jq_ui','fancybox','flexslider','sharrre'], function($)
 		{
 			slider();
 			sharrreButtons();
-			plugin_trustklik();
 			
 			// Fancybox function
 			// $('#flexslider-product .slides a').fancybox();
@@ -180,14 +179,5 @@ define(['jquery','jq_ui','fancybox','flexslider','sharrre'], function($)
 				animationSpeed: 600
 			});
 		};
-
-		var plugin_trustklik = function(){
-			window.trustklik_id = "MioercsF235J4rvIsJaRviS";
-			/* * * DONT EDIT BELOW THIS LINE * * */
-			var tk = document.createElement("script"); tk.type = "text/javascript"; tk.async = true;
-			tk.src = "http://www.trustklik.com/areviews/js/si-embed-insidediv.js";
-			(document.getElementsByTagName("body")[0] || document.getElementsByTagName("head")[0]).appendChild(tk);
-		};
-
 	};
 });

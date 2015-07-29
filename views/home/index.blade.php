@@ -2,7 +2,7 @@
     <div class="row-fluid">
         <div class="span12">
             <h3>BARANG KAMI</h3>
-            <div>
+            <div class="span12">
                 @foreach(list_product() as $key=>$myproduk)
                 <div class="tab-pane active" id="feat">
                     <article class="span4 article-img">

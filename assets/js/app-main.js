@@ -17,13 +17,12 @@ require.config({
 		},
 	},
 
-	"waitSeconds" : 20,
-    urlArgs: "v=002",
+	waitSeconds : 120,
+    urlArgs: "v=003",
 
 	paths: {
 		// LIBRARY
 		bootstrap 		: ['//maxcdn.bootstrapcdn.com/bootstrap/2.2.1/js/bootstrap.min','js/bootstrap.min'],
-		// cart			: 'js/cart',
 		flexslider		: dirTema+'assets/js/lib/jquery.flexslider',
 		fancybox		: dirTema+'assets/js/lib/jquery.fancybox',
 		jquery 			: ['//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min',dirTema+'assets/js/lib/jquery-1.7.2.min'],
@@ -48,7 +47,7 @@ require([
 	'router',
 	'bootstrap',
 	'main',
-	'cart'
+	'cart',
 ], function(router,b,main,cart){
 	// BLOG
 	router.define('blog/*', 'blog@run');
