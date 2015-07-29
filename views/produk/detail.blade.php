@@ -49,9 +49,9 @@
 					@endif  
 				</ul>
 			</div>
-			<div class="email-product hidden-phone">
+			<!-- <div class="email-product hidden-phone">
 				<i class="fa fa-envelope"></i> <a class="navi-blog" href="mailto:{{ $setting->email }}?subject={{$produk->nama}}">Email us about this product</a>
-			</div>
+			</div> -->
 		</div>
 		<div class="span6" style="display:inline-block;">
 			<div class="option-title">

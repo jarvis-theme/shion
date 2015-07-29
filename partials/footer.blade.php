@@ -46,7 +46,7 @@
                 @if($key == '3' || $key == '7')
                 <div class="span3" style="min-height: 25%; margin-left: 0px;">
                     <div class="footer-menu">
-                        <h2 class="title">{{ strtoupper($group->nama) }}</h2>                    
+                        <h2 class="title">{{ strtoupper($group->nama) }}</h2>
                         <ul>
                         @foreach($quickLink as $link)
                             @if($group->id == $link->tautanId)
@@ -55,13 +55,13 @@
                             </li>
                             @endif
                         @endforeach
-                        </ul>                    
+                        </ul>
                     </div>
                 </div>
-                @elseif($key!=0)
+                @elseif($key!=2)
                 <div class="span3" style="min-height: 25%;">
-                    <div class="footer-menu">                    
-                        <h2 class="title">{{ strtoupper($group->nama) }}</h2>                        
+                    <div class="footer-menu">
+                        <h2 class="title">{{ strtoupper($group->nama) }}</h2>
                         <ul>
                         @foreach($quickLink as $link)
                             @if($group->id == $link->tautanId)
@@ -70,11 +70,11 @@
                             </li>
                             @endif
                         @endforeach
-                        </ul>                        
+                        </ul>
                     </div>
                 </div>
                 @endif
-            @endforeach            
+            @endforeach
         </div>
         <div class="row-fluid">
             <div class="span6">
