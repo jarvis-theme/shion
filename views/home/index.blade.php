@@ -1,7 +1,7 @@
 <section class="feat" style="margin-top: 20px;">
     <div class="row-fluid">
         <div class="span12">
-            <h3>BARANG KAMI</h3>
+            <h3>PRODUK KAMI</h3>
             <div class="span12">
                 @foreach(list_product() as $key=>$myproduk)
                 <div class="tab-pane active" id="feat">
