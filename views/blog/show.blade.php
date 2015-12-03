@@ -51,7 +51,7 @@
         </aside>
         <aside class="clearfix tags">
             <p class="title-sidebar"><i class="fa fa-tag"></i> <strong>Tags</strong></p>
-            {{ getTags('<span style="text-decoration: underline;"></span>',$tag)}}                      
+            {{ getTags('<span style="text-decoration: underline;"></span>',$detailblog->tags)}}                      
         </aside>
     </div>
 </div>

@@ -11,7 +11,7 @@
                     <h5>Kategori</h5>
                     <nav>
                         <ul>
-                            {{ generateKategori($kategori,'<li>;</li>','<i class="fa fa-angle-right"></i> ',';',true) }}
+                            {{ generateKategori(list_category(),'<li>;</li>','<i class="fa fa-angle-right"></i> ',';',true) }}
                         </ul>
                     </nav>
                 </section>

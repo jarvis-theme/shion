@@ -1,24 +1,3 @@
-@if(Session::has('msg2'))
-<div class="success" id='message' style='display:none'>
-    Terima kasih, pesan anda sudah terkirim.
-</div>
-@endif
-@if(Session::has('msg3'))
-<div class="success" id='message' style='display:none'>
-    Maaf, pesan anda belum terkirim.
-</div>
-@endif
-@if($errors->all())
-<div class="error" id='message' style='display:none'>
-    Terjadi kesalahan dalam menyimpan data.<br><br>
-    <ul>
-        @foreach($errors->all() as $message)
-        <li>{{ $message }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
- 
 <div class="row-fluid">
     <div class="span12 pages">
         <h3>Kontak Kami</h3>

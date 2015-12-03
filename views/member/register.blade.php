@@ -1,21 +1,3 @@
-@if($errors->all())
-<div class="alert alert-error">
-    Kami menemukan error berikut:
-    <ul>
-    @foreach($errors->all() as $message)
-    <li>{{ $message }}</li>
-    @endforeach
-    </ul>
-</div>
-@endif
-
-@if(Session::has('error'))
-<div class="alert alert-error">
-    <h3>Kami menemukan error berikut:</h3>
-    <p>{{Session::get('error')}}</p>
-</div>
-@endif
-
 <div class="row-fluid standard">
     <div class="span12 pages">
         <h1 style="font-size: 35px; color: #444;">Registrasi</h1>
@@ -70,14 +52,14 @@
             <div class="control-group">
                 <label class="control-label" for="inputEmail"> Provinsi*</label>
                 <div class="controls" id="provinsiPlace">
-                    {{Form::select('provinsi',array('' => '-- Pilih Provinsi --'), Input::old("provinsi"),array('required', "id"=>"provinsi", "data-rel"=>"chosen"))}}
+                    {{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, Input::old("provinsi"),array('required', "id"=>"provinsi", "data-rel"=>"chosen"))}}
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputEmail"> Kota*</label>
                 <div class="controls" id="kotaPlace">
-                    {{Form::select('kota',array('' => '-- Pilih Kota --'),Input::old("kota"), array('required'=>'','id'=>'kota'))}}
+                    {{Form::select('kota',array('' => '-- Pilih Kota --') + $kota ,Input::old("kota"), array('required'=>'','id'=>'kota'))}}
                 </div>
             </div>
 

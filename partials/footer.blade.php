@@ -1,4 +1,4 @@
-﻿    <footer class="data-content">
+    <footer class="data-content">
         <div class="row-fluid main-footer">
             <div class="span3" style="height: auto;">
                 <div class="footer-menu">
@@ -42,13 +42,12 @@
                 </div>
             </div>
 
-            @foreach($tautan as $key=>$group)
-                @if($key == '3' || $key == '7')
+            @foreach(other_menu() as $key=>$group)
                 <div class="span3" style="min-height: 25%; margin-left: 0px;">
                     <div class="footer-menu">
                         <h2 class="title">{{ strtoupper($group->nama) }}</h2>
                         <ul>
-                        @foreach($quickLink as $link)
+                        @foreach($group->link as $link)
                             @if($group->id == $link->tautanId)
                             <li>
                                 <a href='{{menu_url($link)}}'>{{$link->nama}}</a>
@@ -58,22 +57,6 @@
                         </ul>
                     </div>
                 </div>
-                @elseif($key!=2)
-                <div class="span3" style="min-height: 25%;">
-                    <div class="footer-menu">
-                        <h2 class="title">{{ strtoupper($group->nama) }}</h2>
-                        <ul>
-                        @foreach($quickLink as $link)
-                            @if($group->id == $link->tautanId)
-                            <li>
-                                <a href='{{menu_url($link)}}'>{{$link->nama}}</a>
-                            </li>
-                            @endif
-                        @endforeach
-                        </ul>
-                    </div>
-                </div>
-                @endif
             @endforeach
         </div>
         <div class="row-fluid">

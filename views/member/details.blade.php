@@ -1,23 +1,3 @@
-@if($errors->all())
-<div class="alert alert-error">
-    Kami menemukan error berikut:
-    <br>
-    <ul>
-        @foreach($errors->all() as $message)
-        <li>{{ $message }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif @if(Session::has('error'))
-<div class="alert alert-error">
-    <p>Password lama anda tidak benar, silakan coba lagi.</p>
-</div>
-@endif @if(Session::has('success'))
-<div class="success" id='message' style='display:none'>
-    <p>Informasi anda berhasil di update.</p>
-</div>
-@endif
-
 <div class="pages">
     <h3 style="text-align: center;">Member Area</h3>
 </div>

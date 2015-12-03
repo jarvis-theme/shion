@@ -6,7 +6,7 @@
 				<p class="price">
 					<big>{{ price($produk->hargaJual) }}</big>
 					@if($produk->hargaCoret != 0)
-					<small style="color: #A29B95; text-decoration: line-through;">{{ price($produk->hargaCoret) }}</small>
+					- <big style="color: #A29B95; text-decoration: line-through;">{{ price($produk->hargaCoret) }}</big>
 					@endif
 				</p>
 			</div>
@@ -57,10 +57,13 @@
 			<div class="option-title">
 				<p class="product-title" style="font-size: 24px;">{{$produk->nama}}</p>
 				<p class="price">
-					<big style="font-size: 19px; font-weight: bold !important; display: inline-block; padding-right: 16px;">{{ price($produk->hargaJual) }}</big>
-					@if($produk->hargaCoret != 0)
-					<small style="color: #A29B95; text-decoration: line-through;">{{ price($produk->hargaCoret) }}</small>
+				    
+				    @if($produk->hargaCoret != 0)
+					<big style="font-size: 19px; font-weight: bold !important; display: inline-block;color: #A29B95; text-decoration: line-through;">{{ price($produk->hargaCoret) }}</big> -
 					@endif
+					
+					<big style="font-size: 19px; font-weight: bold !important; display: inline-block; padding-right: 5px;">{{ price($produk->hargaJual) }}</big>
+					
 				</p>
 				<div class="hidden-phone" style="margin-top:30px; padding-bottom: 20px;">
 					<div id="twitter-produk" data-url="{{Request::url();}}" data-text="{{$produk->nama}} | " style="width:90px;"></div>

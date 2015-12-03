@@ -18,7 +18,7 @@ require.config({
 	},
 
 	waitSeconds : 120,
-    urlArgs: "v=003",
+    urlArgs: "v=005",
 
 	paths: {
 		// LIBRARY

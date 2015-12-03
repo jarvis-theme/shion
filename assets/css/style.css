@@ -393,5 +393,5 @@ div.sideline > article { height: 277px; position:relative; }
 .pages { padding: 10px 0px; text-align: center; margin-bottom: 30px; border-bottom: 1px dotted #bbb; }
 .txt { height: 30px !important; width: 100%; }
 #horizontal-banner { width: 100%;margin: 0 auto;margin-bottom: 15px; }
-.badge { float: left; position: relative; top: 10px; left: 20px; z-index: 999; }
+.badge { float: none; position: relative; top: 10px; z-index: 999; }
 #img-responsive { display: block; max-width: 100%; height: auto; }

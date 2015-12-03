@@ -4,15 +4,6 @@ define(['jquery','noty'], function($)
 		var self = this;
 		self.run = function(){
 			searchForm();
-
-			//tampilkan error noty
-			var msg = $('#message');
-			if(msg.length){
-				type = $(msg).attr('class');        
-				text = $(msg).html();
-				noty({"text":text,"layout":"top","type":type});    
-			}
-			// $(".collapse").collapse('toggle');
 		};
 
 		var searchForm = function(){

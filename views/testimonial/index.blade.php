@@ -1,19 +1,3 @@
-@if(Session::has('msg'))
-<div class="success" id='message' style='display:none'>
-  <p>Terima kasih, testimonial anda sudah terkirim.</p>
-</div>
-@endif
-@if($errors->all())
-<div class="error" id='message' style='display:none'>
-    Terjadi kesalahan dalam menyimpan data.<br>
-    <ul>
-        @foreach($errors->all() as $message)
-        <li>{{ $message }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-
 <div class="pages">
     <h3>{{$nama}}</h3>
 </div>
