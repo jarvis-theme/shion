@@ -114,28 +114,7 @@ define(['jquery','jq_ui','fancybox','flexslider','sharrre'], function($)
 				api.openPopup('googlePlus');
 			  }
 			});
-			$('#delicious').sharrre({
-			  share: {
-				delicious: true
-			  },
-			  buttons: {
-				delicious: {size: 'tall'}
-			  },
-			  enableHover: false,
-			  enableTracking: false,
-			  enableCounter: false
-			});
-			$('#delicious-produk').sharrre({
-			  share: {
-				delicious: true
-			  },
-			  buttons: {
-				delicious: {size: 'medium'}
-			  },
-			  enableHover: false,
-			  enableTracking: false,
-			  enableCounter: false
-			});
+			
 			$('#stumbleupon').sharrre({
 			  share: {
 				stumbleupon: true

@@ -1,3 +1,4 @@
+<link href='//fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
 {{generate_theme_css('shion/assets/css/bootstrap.css')}}
 {{generate_theme_css('shion/assets/css/bootstrap-responsive.css')}}
 {{generate_theme_css('shion/assets/css/font-awesome.css')}}
