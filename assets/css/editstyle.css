@@ -306,6 +306,7 @@ textarea:focus{
 	section.content .tab-content .view { margin: 35px 20px 5px; }
 	#desc { margin-bottom: 8%; }
 	.flexslider-produk ol.flex-control-nav { display: none !important; }
+	.data-content { min-width: 100%; padding: 0; }
 }
 
 @media (max-width: 600px){

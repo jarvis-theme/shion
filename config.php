@@ -59,7 +59,11 @@ return array(
         'testimonial'=>4,    
     ),
     'banner' => true,
-    'themesColor' => array('type'=> 'false', 'warnaDef'=>'main-color:#87c442;hover-main-color:#13d624;produk-name:#87C442', 'color'=>false),
+    'themesColor' => array(
+        'type'=> 'false',
+        'warnaDef'=>'main-color:#87c442;hover-main-color:#13d624;hover-produk:#87C442',
+        'color'=>false
+    ),
     'layout' => array(
         'index1'=>'Layout dengan sidebar'
         ),

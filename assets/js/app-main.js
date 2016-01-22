@@ -1,4 +1,4 @@
-var dirTema = document.getElementsByTagName('link')[1].getAttribute('href');
+var dirTema = document.querySelector("meta[name='theme_path']").getAttribute('content');
 
 require.config({
 	baseUrl: '/',
@@ -17,17 +17,17 @@ require.config({
 		},
 	},
 
-	waitSeconds : 120,
+	waitSeconds : 60,
     urlArgs: "v=005",
 
 	paths: {
 		// LIBRARY
 		bootstrap 		: ['//maxcdn.bootstrapcdn.com/bootstrap/2.2.1/js/bootstrap.min','js/bootstrap.min'],
-		flexslider		: dirTema+'assets/js/lib/jquery.flexslider',
-		fancybox		: dirTema+'assets/js/lib/jquery.fancybox',
-		jquery 			: ['//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min',dirTema+'assets/js/lib/jquery-1.7.2.min'],
-		respond			: dirTema+'assets/js/lib/respond',
-		sharrre			: dirTema+'assets/js/lib/jquery.sharrre',
+		flexslider		: dirTema+'/assets/js/lib/jquery.flexslider',
+		fancybox		: dirTema+'/assets/js/lib/jquery.fancybox',
+		jquery 			: ['//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min',dirTema+'/assets/js/lib/jquery-1.7.2.min'],
+		respond			: dirTema+'/assets/js/lib/respond',
+		sharrre			: dirTema+'/assets/js/lib/jquery.sharrre',
 
 		// ROUTE
 		router          : 'js/router',
@@ -36,11 +36,11 @@ require.config({
 		cart          	: 'js/shop_cart',
 
 		// CONTROLLER
-		blog            : dirTema+'assets/js/pages/blog',
-		home            : dirTema+'assets/js/pages/home',
-		main            : dirTema+'assets/js/pages/default',
-		member          : dirTema+'assets/js/pages/member',
-		produk          : dirTema+'assets/js/pages/produk',
+		blog            : dirTema+'/assets/js/pages/blog',
+		home            : dirTema+'/assets/js/pages/home',
+		main            : dirTema+'/assets/js/pages/default',
+		member          : dirTema+'/assets/js/pages/member',
+		produk          : dirTema+'/assets/js/pages/produk',
 	}
 });
 require([
