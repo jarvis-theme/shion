@@ -19,10 +19,10 @@
                     <p style="font-size: 16px;"><strong>Leave a message</strong></p>
                     <ul id="contact_form">
                         <li>
-                            <input type="text" name="namaKontak" id="contactName" value="" class="txt requiredField" placeholder="Name" required />
+                            <input type="text" name="namaKontak" id="contactName" class="txt requiredField" placeholder="Name" required />
                         </li>
                         <li>
-                            <input type="text" name="emailKontak" id="email" value="" class="txt requiredField email" placeholder="Email" required />
+                            <input type="text" name="emailKontak" id="email" class="txt requiredField email" placeholder="Email" required />
                         </li>
                         <li>
                             <textarea style="width: 100%;" name="messageKontak" id="commentsText" class="txtarea requiredField" placeholder="Message" required></textarea>
@@ -37,9 +37,9 @@
         </div>
         <div class="span6">
             @if($kontak->lat=='0' || $kontak->lng=='0')
-                <iframe style="float:right" width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
+                <iframe class="pull-right" width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn={{ $kontak->lat.','.$kontak->lng }}&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
             @else
-                <iframe style="float:right" width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->alamat }}&amp;aq=0&amp;oq=gegerkalong+hil&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;hq=&amp;hnear={{ $kontak->alamat }}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
+                <iframe class="pull-right" width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{str_replace(' ','+',$kontak->alamat)}}&amp;aq=0&amp;oq={{str_replace(' ','+',$kontak->alamat)}}&amp;sspn={{ $kontak->lat.','.$kontak->lng }}&amp;ie=UTF8&amp;hq=&amp;hnear={{str_replace(' ','+',$kontak->alamat)}}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
             @endif
         </div>
     </div>

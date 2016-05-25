@@ -20,7 +20,7 @@
                             <div class="control-group">
                                 <label class="control-label" for="inputEmail"> Email</label>
                                 <div class="controls">
-                                    <input type="email" name="email" id="inputEmail" placeholder="Email" required style="height: 30px;">
+                                    <input type="email" name="email" id="inputEmail" placeholder="Email" value="{{Input::old('email')}}" required autofocus style="height: 30px;">
                                 </div>
                             </div>
                             <div class="control-group">

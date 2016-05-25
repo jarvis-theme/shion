@@ -6,7 +6,7 @@
 				<p class="price">
 					<big>{{ price($produk->hargaJual) }}</big>
 					@if($produk->hargaCoret != 0)
-					- <big style="color: #A29B95; text-decoration: line-through;">{{ price($produk->hargaCoret) }}</big>
+					&nbsp;<big class="discount-mobile">{{ price($produk->hargaCoret) }}</big>
 					@endif
 				</p>
 			</div>
@@ -16,37 +16,37 @@
 		<div class="span6">
 			<div id="slider" class="flexslider-produk">
 				<ul class="slides" style="z-index: 0;">
-					@if($produk->gambar1!='')   
+					@if($produk->gambar1!='') 
 					<li data-thumb="{{url(product_image_url($produk->gambar1,'medium'))}}">
 						<a class="fancybox" href="{{product_image_url($produk->gambar1, 'large')}}" title="{{$produk->nama}}">
-						{{HTML::image( url(product_image_url($produk->gambar1)))}}
+						{{ HTML::image( url(product_image_url($produk->gambar1))) }} 
 						</a>
 					</li>
-					@endif  
+					@endif 
 
-					@if($produk->gambar2!='')   
+					@if($produk->gambar2!='') 
 					<li data-thumb="{{ url(product_image_url($produk->gambar2,'medium')) }}">
 						<a class="fancybox" href="{{product_image_url($produk->gambar2, 'large')}}" title="{{$produk->nama}}">
-						{{HTML::image( url(product_image_url($produk->gambar2)))}}
+						{{ HTML::image( url(product_image_url($produk->gambar2))) }} 
 						</a>
 					</li>
-					@endif  
+					@endif 
 
-					@if($produk->gambar3!='')   
+					@if($produk->gambar3!='') 
 					<li data-thumb="{{ url(product_image_url($produk->gambar3,'medium')) }}">
 						<a class="fancybox" href="{{product_image_url($produk->gambar3, 'large')}}" title="{{$produk->nama}}">
-						{{HTML::image( url(product_image_url($produk->gambar3)))}}
+						{{ HTML::image( url(product_image_url($produk->gambar3))) }}
 						</a>
 					</li>
-					@endif  
+					@endif 
 
-					@if($produk->gambar4!='')   
+					@if($produk->gambar4!='') 
 					<li data-thumb="{{url(product_image_url($produk->gambar4,'medium'))}}">
 						<a class="fancybox" href="{{product_image_url($produk->gambar4, 'large')}}" title="{{$produk->nama}}">
-						{{HTML::image( url(product_image_url($produk->gambar4)))}}
+						{{ HTML::image( url(product_image_url($produk->gambar4))) }} 
 						</a>
 					</li>
-					@endif  
+					@endif 
 				</ul>
 			</div>
 			<!-- <div class="email-product hidden-phone">
@@ -57,13 +57,10 @@
 			<div class="option-title">
 				<p class="product-title" style="font-size: 24px;">{{$produk->nama}}</p>
 				<p class="price">
-				    
-				    @if($produk->hargaCoret != 0)
-					<big style="font-size: 19px; font-weight: bold !important; display: inline-block;color: #A29B95; text-decoration: line-through;">{{ price($produk->hargaCoret) }}</big> -
+					<big>{{ price($produk->hargaJual) }}</big>
+					@if($produk->hargaCoret != 0)
+					&nbsp;<big class="discount">{{ price($produk->hargaCoret) }}</big>
 					@endif
-					
-					<big style="font-size: 19px; font-weight: bold !important; display: inline-block; padding-right: 5px;">{{ price($produk->hargaJual) }}</big>
-					
 				</p>
 				<div class="hidden-phone" style="margin-top:30px; padding-bottom: 20px;">
 					<div id="twitter-produk" data-url="{{Request::url();}}" data-text="{{$produk->nama}} | " style="width:90px;"></div>
@@ -75,7 +72,7 @@
 			</div>
 			<form action="#" id="addorder">
 				<div class="option-cart">
-					@if($opsiproduk->count() > 0)                    
+					@if($opsiproduk->count() > 0) 
 					<label>Opsi :</label>
 					<select>
 						<option value=""> Pilih Opsi </option>
@@ -104,8 +101,8 @@
 	</div>
 </div>
 <div class="row-fluid">
-	<div class="span12" style="border-top: 1px solid #DDD; margin-top: 20px;">
-		{{pluginTrustklik()}}
+	<div class="span12 reviews">
+		{{ pluginComment(product_url($produk), @$produk) }}
 	</div>
 </div>
 @if(count(other_product($produk))>0)
@@ -117,25 +114,23 @@
 			<hr />
 			<section class="row-fluid cross-product">
 				@foreach(other_product($produk) as $myproduk)
-				<article class="span3" style="height: 277px; position: relative;">
+				<article class="span3">
 					<span class="badge badge-inverse">{{price($myproduk->hargaJual)}}</span>
-					@if(is_outstok($myproduk))    
-                        {{is_outstok($myproduk)}}
-                    @else
-                        @if(is_produkbaru($myproduk))
-                            {{is_produkbaru($myproduk)}}
-                        @elseif(is_terlaris($myproduk))
-                            {{is_terlaris($myproduk)}}
-                        @endif
-                    @endif
+					@if(is_outstok($myproduk)) 
+						{{is_outstok($myproduk)}}
+					@elseif(is_produkbaru($myproduk))
+						{{is_produkbaru($myproduk)}}
+					@elseif(is_terlaris($myproduk))
+						{{is_terlaris($myproduk)}}
+					@endif
 					<div class="view thumb-prod">
-						{{HTML::image(product_image_url($myproduk->gambar1), $myproduk->nama, array('class'=>'img1'))}}
+						{{HTML::image(product_image_url($myproduk->gambar1), $myproduk->nama, array('class'=>'img1'))}} 
 						<div class="mask">
 							<p>{{short_description($myproduk->deskripsi,100)}}</p>
 							<a href="{{product_url($myproduk)}}" class="tbl-lihat">Lihat</a>
 						</div>
 					</div>
-					<p style="text-align: center;"><a class="navi-blog" href="{{product_url($myproduk)}}">{{ short_description($myproduk->nama,32) }}</a></p>
+					<p class="center"><a class="navi-blog" href="{{product_url($myproduk)}}">{{ short_description($myproduk->nama,32) }}</a></p>
 				</article>
 				@endforeach
 			</div>

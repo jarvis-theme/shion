@@ -10,7 +10,7 @@
             <p>{{substr($value->isi,0,250)}}</p>
         </article>
         @endforeach
-        {{list_testimonial()->links()}}
+        {{list_testimonial()->links()}} 
     </div>
     <aside class="span4" style="padding-top: 10px;">
         <p style="font-size: 16px; margin-bottom: 20px;"><strong>Kirim Testimonial</strong></p>
@@ -19,7 +19,7 @@
             <input type="text" name="nama" class="input-text" required style="height: 30px; width: 100%;"><br><br>
             <label>Testimonial</label>
             <textarea name="testimonial" class="textarea" required style="width: 100%;"></textarea><br><br>
-            <input type="submit" style="float:right" class="cart-button" value="Kirim Testimonial">
+            <input type="submit" class="cart-button pull-right" value="Kirim Testimonial">
             <br><br>
         </form>
     </aside>

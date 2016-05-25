@@ -8,14 +8,12 @@
                     <article class="span4 article-img">
                         <span id="harga" class="badge badge-inverse">{{price($myproduk->hargaJual)}}</span>
 
-                        @if(is_outstok($myproduk))    
-                            {{is_outstok($myproduk)}}
-                        @else
-                            @if(is_produkbaru($myproduk))
-                                {{is_produkbaru($myproduk)}}
-                            @elseif(is_terlaris($myproduk))
-                                {{is_terlaris($myproduk)}}
-                            @endif
+                        @if(is_outstok($myproduk)) 
+                            {{is_outstok($myproduk)}} 
+                        @elseif(is_produkbaru($myproduk))
+                            {{is_produkbaru($myproduk)}} 
+                        @elseif(is_terlaris($myproduk))
+                            {{is_terlaris($myproduk)}} 
                         @endif
 
                         <div class="view view-thumb">
@@ -27,7 +25,7 @@
                         </div>
                         <p>
                             <a class="navi-blog" href="{{product_url($myproduk)}}">
-                                {{short_description($myproduk->nama,77)}}
+                                {{short_description($myproduk->nama,77)}} 
                             </a>
                         </p>
                     </article>

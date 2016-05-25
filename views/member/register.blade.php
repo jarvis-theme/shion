@@ -17,7 +17,7 @@
             <div class="control-group">
                 <label class="control-label" for="inputEmail"> Email*</label>
                 <div class="controls">
-                  <input type="email" class="span6 txt" name='email' value='{{Input::old("email")}}' required>
+                  <input type="email" class="span6 txt" name="email" value="{{Input::old('email')}}" required>
                 </div>
             </div>
 
@@ -45,35 +45,35 @@
             <div class="control-group">
                 <label class="control-label" for="inputEmail"> Negara*</label>
                 <div class="controls" >
-                    {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara,Input::old(''),array('required', "id"=>"negara", "data-rel"=>"chosen"))}}
+                    {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara, Input::old('negara'), array('required', "id"=>"negara", "data-rel"=>"chosen"))}} 
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputEmail"> Provinsi*</label>
                 <div class="controls" id="provinsiPlace">
-                    {{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, Input::old("provinsi"),array('required', "id"=>"provinsi", "data-rel"=>"chosen"))}}
+                    {{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, Input::old("provinsi"), array('required', "id"=>"provinsi", "data-rel"=>"chosen"))}} 
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputEmail"> Kota*</label>
                 <div class="controls" id="kotaPlace">
-                    {{Form::select('kota',array('' => '-- Pilih Kota --') + $kota ,Input::old("kota"), array('required'=>'','id'=>'kota'))}}
+                    {{Form::select('kota',array('' => '-- Pilih Kota --') + $kota, Input::old("kota"), array('required'=>'','id'=>'kota'))}}
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputEmail"> Kode Pos*</label>
                 <div class="controls">
-                  <input class="span3 txt" type="text" name='kodepos' value='{{Input::old("kodepos")}}' required>
+                  <input class="span3 txt" type="text" name="kodepos" value="{{Input::old('kodepos')}}" required>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputEmail"> Telepon / HP*</label>
                 <div class="controls">
-                    <input class="span4 text" type="text" name='telp' value='{{Input::old("telp")}}' required>
+                    <input class="span4 text" type="text" name="telp" value="{{Input::old('telp')}}" required>
                 </div>
             </div>
 
@@ -81,14 +81,14 @@
                 <label class="control-label" for="inputEmail"> Captcha*</label>
                 <div class="controls">
                   {{ HTML::image(Captcha::img(), 'Captcha image') }}<br><br>
-                  {{Form::text('captcha', '', array('style'=>'height: 30px;'))}}
+                  {{Form::text('captcha', '', array('style'=>'height: 30px;'))}} 
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputEmail"></label>
                 <div class="controls">
-                  <input type="checkbox" name='readme' value="1"> Saya telah membaca dan menyetujui <a href="{{url('service')}}" target="_blank">Persyaratan Member</a>
+                  <input type="checkbox" name="readme" value="1"> Saya telah membaca dan menyetujui <a href="{{url('service')}}" target="_blank">Persyaratan Member</a>
                 </div>
             </div>
 
@@ -97,6 +97,6 @@
                   <button type="submit" class="cart-button"><i class="fa fa-check"></i> Daftar</button>
                 </div>
             </div>
-        {{Form::close()}}
+        {{Form::close()}} 
     </div>
 </div>

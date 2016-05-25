@@ -61,23 +61,34 @@
         </div>
         <div class="row-fluid">
             <div class="span6">
-                <p class="copyright">Copyright © {{date('Y')}} {{ Theme::place('title') }}. All Rights Reserved. Powered by <a href="http://jarvis-store.com" target="_blank">Jarvis Store</a></p>
+                <p class="copyright">Copyright &copy; {{date('Y')}} {{ Theme::place('title') }}. All Rights Reserved. Powered by <a href="http://jarvis-store.com" target="_blank">Jarvis Store</a></p>
             </div>
             <div class="span6">
                 <p class="bank">
-                @foreach(list_banks() as $value)  
-                    <img src="{{bank_logo($value)}}" alt="{{$value->name}}" title="{{$value->name}}" />
+                @foreach(list_banks() as $value) 
+                    @if($value->status == 1)
+                    <img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}" />
+                    @endif
                 @endforeach  
                 @foreach(list_payments() as $pay)
+                    @if($pay->nama == 'paypal' && $pay->aktif == 1)
+                    <img src="{{url('img/bank/paypal.png')}}" alt="Paypal" title="Paypal" />
+                    @endif
                     @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                    <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Ipaymu" />
+                    <img src="{{url('img/bank/ipaymu.jpg')}}" alt="Ipaymu" title="Ipaymu" />
+                    @endif
+                    @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
+                    <img src="{{url('img/bitcoin.png')}}" alt="Bitcoin" title="Bitcoin" />
                     @endif
                 @endforeach
                 @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
                     <img src="{{url('img/bank/doku.jpg')}}" alt="doku" title="Doku Myshortcart" />
                 @endif
+                @if(count(list_veritrans()) > 0 && list_veritrans()->status == 1 && list_veritrans()->type == 1)
+                    <img src="{{url('img/bank/veritrans.png')}}" alt="Veritrans" title="Veritrans">
+                @endif
                 </p>
             </div>
         </div>
     </footer>
-    {{pluginPowerup()}}
+    {{pluginPowerup()}} 

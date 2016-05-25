@@ -58,7 +58,7 @@
                         </li>
                         @endforeach
                     </ul>
-                    <strong style="float:right"><a href="{{url('testimoni')}}">More..</a></strong>
+                    <strong class="pull-right"><a href="{{url('testimoni')}}">More..</a></strong>
                 </span>
             </section>
         </div>
@@ -67,18 +67,16 @@
     <div class="span9">
         <div class="row-fluid">
             <div class="tab-content sideline">
-                @foreach(home_product() as $myproduk)   
+                @foreach(home_product() as $myproduk) 
                 <article>
                     <span id="harga" class="badge badge-inverse">{{price($myproduk->hargaJual)}}</span>
 
-                    @if(is_outstok($myproduk))    
+                    @if(is_outstok($myproduk)) 
                         {{is_outstok($myproduk)}}
-                    @else   
-                        @if(is_produkbaru($myproduk))   
-                            {{is_produkbaru($myproduk)}}
-                        @elseif(is_terlaris($myproduk)) 
-                            {{is_terlaris($myproduk)}}
-                        @endif  
+                    @elseif(is_produkbaru($myproduk)) 
+                        {{is_produkbaru($myproduk)}} 
+                    @elseif(is_terlaris($myproduk)) 
+                        {{is_terlaris($myproduk)}} 
                     @endif  
 
                     <div class="view thumb-prod">
