@@ -87,7 +87,7 @@
 					@endif
 					<div class="opsi">
 						<label id="qty-label">Quantity</label>
-						<input type="text" value="1" name="qty" class="qty">
+						<input type="number" value="1" name="qty" class="qty" pattern="[0-9]" title="Quantity">
 					</div>
 					<button type="submit" class="cart-button">Add to cart</button>
 				</div>
